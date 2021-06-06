@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BusinessGenie.app.Bossex.Views.SettingsPage.SettingsPage">
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab closable="false" text="Theme">
+            <content>
+                <VBox layoutX="234.0" layoutY="33.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Theme:" />
+                              <ComboBox fx:id="themeComboBox" prefWidth="150.0" visibleRowCount="2" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                         <HBox VBox.vgrow="ALWAYS" alignment="CENTER"><ImageView fx:id="previewTheme" fitHeight="265.0" fitWidth="568.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS" />
+                         </HBox>
+                        <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                          <buttons>
+                            <Button fx:id="okButton" text="_Ok" />
+                              <Button fx:id="cancelButton" text="_Cancel" />
+                              <Button fx:id="applyButton" text="_Apply" />
+                          </buttons>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </ButtonBar>
+                     </children></VBox>
+            </content>
+          </Tab>
+          <Tab closable="false" text="Font">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

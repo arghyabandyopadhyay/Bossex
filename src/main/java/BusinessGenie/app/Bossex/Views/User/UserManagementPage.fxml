@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<BorderPane fx:id="UserManagementBorderPane" prefHeight="400.0" prefWidth="948.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BusinessGenie.app.Bossex.Views.User.UserManagementPage">
+    <center>
+    <ScrollPane fitToWidth="true" prefHeight="400.0" prefWidth="690.0" BorderPane.alignment="CENTER">
+        <BorderPane prefHeight="510.0" prefWidth="986.0">
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="555.0" BorderPane.alignment="CENTER">
+                    <HBox alignment="CENTER_LEFT" prefHeight="95.0" prefWidth="504.0" HBox.hgrow="ALWAYS">
+                        <Label text="Manage Users">
+                            <font>
+                                <Font size="80.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+                    <Button fx:id="addButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="90" text="Add">
+                        <graphic>
+                            <ImageView fx:id="addImageView" pickOnBounds="true"
+                                       preserveRatio="true"/>
+                        </graphic>
+                    </Button>
+                </HBox>
+            </top>
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <center>
+                <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                            <HBox alignment="CENTER_LEFT" prefHeight="120.0" prefWidth="202.0" HBox.hgrow="NEVER">
+                                <Label text="Show "/>
+                                <ComboBox fx:id="entriesComboBox" prefHeight="26.0" prefWidth="91.0"/>
+                                <Label text=" Entries"/>
+                            </HBox>
+                            <TilePane alignment="CENTER_LEFT" prefHeight="95.0" prefWidth="504.0" HBox.hgrow="ALWAYS">
+                                <Button mnemonicParsing="false" prefHeight="60" prefWidth="152" text="Export to CSV">
+                                    <graphic>
+                                        <ImageView fx:id="exportToCSVImageView1"/>
+                                    </graphic>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="60" prefWidth="153" text="Export to Excel">
+                                    <graphic>
+                                        <ImageView fx:id="exportToExcelImageView1" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="60" prefWidth="152" text="Export to PDF">
+                                    <graphic>
+                                        <ImageView fx:id="exportToPDFImageView1" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                                <Button mnemonicParsing="false" prefHeight="60" prefWidth="152" text="Print">
+                                    <graphic>
+                                        <ImageView fx:id="printImageView1" pickOnBounds="true" preserveRatio="true"/>
+                                    </graphic>
+                                </Button>
+                            </TilePane>
+                            <TextField prefHeight="26.0" prefWidth="219.0" promptText="Search.." HBox.hgrow="NEVER"/>
+                        </HBox>
+                        <TableView fx:id="usersTableView" prefHeight="195.0" prefWidth="890.0" tableMenuButtonVisible="true">
+                            <columns>
+                                <TableColumn prefWidth="75.0" text="Username" />
+                                <TableColumn prefWidth="75.0" text="Name" />
+                                <TableColumn prefWidth="75.0" text="Role" />
+                                <TableColumn prefWidth="75.0" text="Email" />
+                                <TableColumn prefWidth="75.0" text="Actions" />
+                            </columns>
+                            <columnResizePolicy>
+                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                            </columnResizePolicy>
+                        </TableView>
+                        <Label text="Showing 1 to 1 of 1 entries" />
+                    </children>
+                </VBox>
+            </center>
+            <bottom>
+                <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <buttons>
+                        <Button mnemonicParsing="false" text="Previous" />
+                        <Button mnemonicParsing="false" text="Next" />
+                    </buttons>
+                </ButtonBar>
+            </bottom>
+        </BorderPane>
+    </ScrollPane>
+    </center>
+
+</BorderPane>

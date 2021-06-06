@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="MasterPageRootPane" prefHeight="700" prefWidth="1200" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BusinessGenie.app.Bossex.Views.MasterPage.MasterPage">
+    <center>
+        <TabPane fx:id="MainAreaTabPane" prefHeight="527.0" prefWidth="1200.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER" tabDragPolicy="REORDER"/>
+    </center>
+    <top>
+        <TabPane fx:id="toolBarTabPane" prefHeight="135.0" prefWidth="1200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <Tab closable="false" text="User">
+                <graphic>
+                    <ImageView fx:id="userManagementTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="117.0" prefWidth="716.0">
+                    <Button onAction="#manageUsersButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="80.0" text="User" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageUsersImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addUserButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Add Users" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addUserImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageRolesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="80.0" text="Roles" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageRolesImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addRoleButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Add Roles" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addRoleImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#salesCommissionAgentsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Sales Commission Agents" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="salesCommissionAgentsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Contacts">
+                <graphic>
+                    <ImageView fx:id="contactsTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="117.0" prefWidth="716.0">
+                    <Button onAction="#manageSuppliersButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="80.0" text="Suppliers" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageSuppliersImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addSuppliersButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Add Suppliers" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addSuppliersImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageCustomersButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Customers" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageCustomersImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addCustomersButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Add Customers" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addCustomersImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageCustomersGroupsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Customer Groups" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageCustomersGroupsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#importContactsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Import Contacts" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="importContactsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Products">
+                <graphic>
+                    <ImageView fx:id="productTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="142.0" prefWidth="1200.0">
+                    <Button onAction="#manageProductsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="List Products" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageProductsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Separator orientation="VERTICAL" prefHeight="85" />
+                    <Button onAction="#addProductButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Add Products" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addProductImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#printLabelButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Print Labels" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="printLabelImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Separator orientation="VERTICAL" prefHeight="85" />
+                    <Button onAction="#manageProductVariationsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Variations" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageProductVariationsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Separator orientation="VERTICAL" prefHeight="85" />
+                    <Button onAction="#importProductButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="Import Products" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="importProductImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#importOpeningStockButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="130.0" text="Import Opening Stocks" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="importOpeningStockImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#sellingPriceGroupButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="100.0" text="Selling Price Group" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="sellingPriceGroupImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageUnitsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="Units" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageUnitsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageCategoriesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Categories" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageCategoriesImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageBrandsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="Brands" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageBrandsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#warrantiesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Warranties" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="warrantiesImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Purchases">
+                <graphic>
+                    <ImageView fx:id="purchasesTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="117.0" prefWidth="716.0">
+                    <Button onAction="#managePurchasesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="List Purchases" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="managePurchasesImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addPurchaseButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="80.0" text="Add Purchase" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addPurchaseImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#managePurchaseReturnButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="120.0" text="List Purchase Return" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="managePurchaseReturnImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Sell">
+                <graphic>
+                    <ImageView fx:id="sellTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="142.0" prefWidth="1200.0">
+                    <Button onAction="#manageSalesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="All Sales" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageSalesImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Separator orientation="VERTICAL" prefHeight="85" />
+                    <Button onAction="#addSaleButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Add Sale" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addSaleImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#managePOSButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="List POS" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="managePOSImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Separator orientation="VERTICAL" prefHeight="85" />
+                    <Button onAction="#posButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="POS" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="posImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Separator orientation="VERTICAL" prefHeight="85" />
+                    <Button onAction="#manageDraftsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="List Drafts" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageDraftsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageQuotationsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="95.0" text="List Quotations" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageQuotationsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageSellReturnButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="List Sell Return" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageSellReturnImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageShipmentsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Shipments" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageShipmentsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageDiscountsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Discounts" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageDiscountsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#importSalesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="Import Sales" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="importSalesImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Stock Transfers">
+                <graphic>
+                    <ImageView fx:id="stockTransferTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="117.0" prefWidth="716.0">
+                    <Button onAction="#manageStockTransferButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="100.0" text="List Stock Transfers" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageStockTransferImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addStockTransfersButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="100.0" text="Add Stock Transfers" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addStockTransfersImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Stock Adjustments">
+                <graphic>
+                    <ImageView fx:id="stockAdjustmentsTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="117.0" prefWidth="716.0">
+                    <Button onAction="#manageStockAdjustmentsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="100.0" text="List Stock Adjustments" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageStockAdjustmentsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addStockAdjustmentsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="100.0" text="Add Stock Adjustments" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addStockAdjustmentsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Expenses">
+                <graphic>
+                    <ImageView fx:id="expensesTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="117.0" prefWidth="716.0">
+                    <Button onAction="#manageExpensesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="80.0" text="List Expenses" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageExpensesImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addExpenseButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="80.0" text="Add Expense" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addExpenseImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageExpenseCategoriesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Expense Categories" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageExpenseCategoriesImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Reports">
+                <graphic>
+                    <ImageView fx:id="reportsTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="142.0" prefWidth="1200.0">
+                    <Button onAction="#profitLossReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="100.0" text="Profit / Loss Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="profitLossReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#purchaseSaleReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Purchase &amp; Sales Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="purchaseSaleReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#taxReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Tax Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="taxReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#supplierCustomerReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Supplier &amp; Customer Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="supplierCustomerReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#customerGroupsReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Customer Groups Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="customerGroupsReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#stockReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Stock Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="stockReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#stockAdjustmentReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Stock Adjustment Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="stockAdjustmentReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#trendingProductsReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Trending Products" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="trendingProductsReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#itemsReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Items Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="itemsReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#productPurchaseReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Product Purchase Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="productPurchaseReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#productSellReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Product Sell Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="productSellReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#purchasePaymentReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Purchase Payment Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="purchasePaymentReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#sellPaymentReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Sale Payment Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="sellPaymentReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#expenseReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Expense Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="expenseReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#registerReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Register Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="registerReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#salesRepresentativeReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Sales Representative Report" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="salesRepresentativeReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Human Resources">
+                <graphic>
+                    <ImageView fx:id="hrManagementTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="117.0" prefWidth="716.0">
+                    <Button onAction="#manageOnboardingAndOffboardingButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="130.0" text="OnBoarding and OffBoarding" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageOnboardingAndOffboardingImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageEmployeeHiringButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Hiring" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageEmployeeHiringImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageEmployeePerformanceAndAppraisalButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="120.0" text="Performance And Appraisals" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageEmployeePerformanceAndAppraisalImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#administrationButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="115.0" text="Administration" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="administrationImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#managePayrollButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Manage Payroll" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="managePayrollImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#trackingAndManagingEmployeeBenefitsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="160.0" text="Tracking &amp; Managing Employee Benefits" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="trackingAndManagingEmployeeBenefitsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#hrPlanningButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Hr Planning" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="hrPlanningImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#recruitingButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="155.0" text="Recruiting / Learning Management" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="recruitingImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#employeeSelfButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="120.0" text="Employee self-service" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="employeeSelfImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageSchedulingAndRotaButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="140.0" text="Scheduling and rota management" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageSchedulingAndRotaImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageAbsenceButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="110.0" text="Absence management" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageAbsenceImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageLeaveButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="110.0" text="Leave management" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageLeaveImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageReporingAndAnalysisButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="110.0" text="Reporting and analytics" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageReportingAndAnalysisImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageEmployeeReassingmentButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="110.0" text="Employee reassignment" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageEmployeeReassingmentImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageGrievianceHandlingButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="110.0" text="Grievance handling" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageGrievianceHandlingImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Profile">
+                <graphic>
+                    <ImageView fx:id="homeTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="115.0" prefWidth="1200.0">
+                    <Button onAction="#openDashBoardButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Dashboard" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="openDashBoardImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#myProfileButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Profile" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="myProfileImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageTodoButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Todos" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageTodoImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#logOutButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Log Out" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="logOutImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Tools">
+                <graphic>
+                    <ImageView fx:id="toolsTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="142.0" prefWidth="1200.0">
+                    <Button onAction="#calculatorToolButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Calculator" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="calculatorToolImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Separator orientation="VERTICAL" prefHeight="85" />
+                    <Button onAction="#spreadSheetToolButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="SpreedSheets" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="spreadSheetToolImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#spotifyToolButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Spotify" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="spotifyToolImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Settings">
+                <graphic>
+                    <ImageView fx:id="settingsTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                <ToolBar prefHeight="142.0" prefWidth="1200.0">
+                    <Button onAction="#businessSettingsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Business Settings" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="businessSettingsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Separator orientation="VERTICAL" prefHeight="85" />
+                    <Button onAction="#manageBusinessLocationButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Business Locations" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageBusinessLocationImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageInvoiceSettingsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Invoice Settings" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageInvoiceSettingsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Separator orientation="VERTICAL" prefHeight="85" />
+                    <Button onAction="#manageBarcodeSettingsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="Barcode Settings" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageBarcodeSettingsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Separator orientation="VERTICAL" prefHeight="85" />
+                    <Button onAction="#printersButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="Printers" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="printerImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#manageTaxRatesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="Tax Rates" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="manageTaxRatesImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#notificationTemplateButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="95.0" text="Notification Templates" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="notificationTemplateImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#applicationSettingsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="Bossex Settings" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="applicationSettingsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                </ToolBar>
+            </Tab>
+            <Tab closable="false" text="Help">
+                <graphic>
+                    <ImageView fx:id="helpTabImageView" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+                    <ToolBar prefHeight="116.0" prefWidth="1200.0">
+                        <Button onAction="#helpButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Help" textAlignment="CENTER" wrapText="true">
+                            <graphic>
+                                <ImageView fx:id="helpImageView"  pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                        </Button>
+                        <Button onAction="#gettingStartedButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Getting Started" textAlignment="CENTER" wrapText="true">
+                            <graphic>
+                                <ImageView fx:id="gettingStartedImageView"  pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                        </Button>
+                        <Button onAction="#contactSupportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Contact Support" textAlignment="CENTER" wrapText="true">
+                            <graphic>
+                                <ImageView  fx:id="contactSupportImageView"  pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                        </Button>
+                        <Button onAction="#demosAndScreenButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="100.0" text="Demos And Screencasts" wrapText="true">
+                            <graphic>
+                                <ImageView fx:id="demosAndScreenCastsImageView"  pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                        </Button>
+                        <Button onAction="#bugReportButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Bug Report" textAlignment="CENTER" wrapText="true">
+                            <graphic>
+                                <ImageView fx:id="bugReportImageView"  pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                        </Button>
+                        <Button onAction="#submitFeedbackButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Submit Feedback" textAlignment="CENTER" wrapText="true">
+                            <graphic>
+                                <ImageView fx:id="submitFeedbackImageView"  pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                        </Button>
+                        <Button onAction="#downloadUpdateButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Download Updates" textAlignment="CENTER" wrapText="true">
+                            <graphic>
+                                <ImageView fx:id="downloadUpdateImageView"  pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                        </Button>
+                        <Button onAction="#aboutButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="About" textAlignment="CENTER" wrapText="true">
+                            <graphic>
+                                <ImageView fx:id="aboutImageView"  pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                        </Button>
+                    </ToolBar>
+                </Tab>
+            </TabPane>
+    </top>
+    <bottom>
+        <HBox alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="1200.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
+            <Label prefHeight="26.0" prefWidth="1044.0" text="Bossex v2020.1 | Copyright &#169; 2020 All rights reserved." textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <padding>
+                    <Insets right="5.0" />
+                </padding>
+            </Label>
+            <Label alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="641.0" text="Business Genie." textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font>
+                <padding>
+                    <Insets left="5.0" />
+                </padding>
+            </Label>
+        </HBox>
+    </bottom>
+</BorderPane>

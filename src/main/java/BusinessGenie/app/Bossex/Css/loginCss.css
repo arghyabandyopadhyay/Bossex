@@ -1,0 +1,15 @@
+#borderPane1{
+      -fx-background-color: #ffffff;
+      -fx-border-color: #ffffff;
+      }
+      .label{
+          -fx-text-fill: white;
+      }
+      .button{
+        -fx-background-color: #2DC3E5;
+        -fx-background-radius: 20;
+      }
+      .button:hover{
+          -fx-background-color: #007FD7;
+          -fx-background-radius: 20;
+      }

@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<BorderPane fx:id="DashboardBorderPane" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="BusinessGenie.app.Bossex.Views.Home.DashboardPage"
+            prefHeight="400.0" prefWidth="600.0">
+    <center>
+        <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="1182.0">
+                <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="599.0">
+                    <ToggleButton mnemonicParsing="false" fx:id="todayToggleButton" text="Today">
+                        <HBox.margin><Insets right="5.0"/></HBox.margin>
+                    </ToggleButton>
+                    <ToggleButton mnemonicParsing="false" fx:id="thisWeekToggleButton" text="This Week">
+                        <HBox.margin><Insets right="5.0"/></HBox.margin>
+                    </ToggleButton>
+                    <ToggleButton mnemonicParsing="false" fx:id="thisMonthToggleButton" text="This Month">
+                        <HBox.margin><Insets right="5.0"/></HBox.margin>
+                    </ToggleButton>
+                    <ToggleButton mnemonicParsing="false" fx:id="thisQuarterToggleButton" text="This Quarter">
+                        <HBox.margin><Insets right="5.0"/></HBox.margin>
+                    </ToggleButton>
+                    <ToggleButton mnemonicParsing="false" fx:id="thisFinancialYearToggleButton" text="This Financial Year">
+                        <HBox.margin><Insets right="5.0" /></HBox.margin>
+                    </ToggleButton>
+                </HBox>
+                <TilePane prefHeight="139.0">
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <Button onAction="#totalPurchaseImageView">
+                        <padding>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        </padding>
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" prefHeight="80.0">
+                                <TilePane.margin>
+                                    <Insets left="5.0" right="5.0"/>
+                                </TilePane.margin>
+                                <ImageView fx:id="totalPurchaseImageView" fitHeight="60.0" fitWidth="60.0"
+                                           pickOnBounds="true" preserveRatio="true"/>
+                                <VBox alignment="CENTER_LEFT" prefHeight="61.0">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                    <Label text="Total Purchase">
+                                        <font>
+                                            <Font size="20.0"/>
+                                        </font>
+                                    </Label>
+                                    <Label text="₹ 500.00">
+                                        <font>
+                                            <Font size="20.0"/>
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+                        </graphic>
+                    </Button>
+                    <Button onAction="#totalSalesButtonAction">
+                        <padding>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        </padding>
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" prefHeight="80.0">
+                                <ImageView fx:id="totalSalesImageView" fitHeight="60.0" fitWidth="60.0"
+                                           pickOnBounds="true" preserveRatio="true"/>
+                                <VBox alignment="CENTER_LEFT" prefHeight="80.0">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                    <Label text="Total Sales">
+                                        <font>
+                                            <Font size="20.0"/>
+                                        </font>
+                                    </Label>
+                                    <Label text="₹700.00">
+                                        <font>
+                                            <Font size="20.0"/>
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+                        </graphic>
+                    </Button>
+                    <Button onAction="#purchaseDueButtonAction">
+                        <padding>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        </padding>
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" prefHeight="80.0" >
+                                <ImageView fx:id="purchaseDueImageView" fitHeight="60.0" fitWidth="60.0"
+                                           pickOnBounds="true" preserveRatio="true"/>
+                                <VBox alignment="CENTER_LEFT" prefHeight="80.0">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                    <Label text="Purchase Due">
+                                        <font>
+                                            <Font size="20.0"/>
+                                        </font>
+                                    </Label>
+                                    <Label text="₹500.00">
+                                        <font>
+                                            <Font size="20.0"/>
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+                        </graphic>
+                    </Button>
+                    <Button onAction="#invoiceDueButtonAction">
+                        <padding>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        </padding>
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" prefHeight="80.0" >
+                                <ImageView fx:id="invoiceDueImageView" fitHeight="60.0" fitWidth="60.0"
+                                           pickOnBounds="true" preserveRatio="true"/>
+                                <VBox alignment="CENTER_LEFT" prefHeight="61.0">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                    <Label text="Invoice Due">
+                                        <font>
+                                            <Font size="20.0"/>
+                                        </font>
+                                    </Label>
+                                    <Label text="₹ 500.00">
+                                        <font>
+                                            <Font size="20.0"/>
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+                        </graphic>
+                    </Button>
+                    <Button onAction="#expenseDueButtonAction">
+                        <padding>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                        </padding>
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" prefHeight="80.0" >
+                                <ImageView fx:id="expenseDueImageView" fitHeight="60.0" fitWidth="60.0"
+                                           pickOnBounds="true" preserveRatio="true"/>
+                                <VBox alignment="CENTER_LEFT" prefHeight="61.0">
+                                    <HBox.margin>
+                                        <Insets left="10.0"/>
+                                    </HBox.margin>
+                                    <Label text="Expense Due">
+                                        <font>
+                                            <Font size="20.0"/>
+                                        </font>
+                                    </Label>
+                                    <Label text="₹ 0.00">
+                                        <font>
+                                            <Font size="20.0"/>
+                                        </font>
+                                    </Label>
+                                </VBox>
+                            </HBox>
+                        </graphic>
+                    </Button>
+                </TilePane>
+                <TilePane alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0">
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <VBox>
+                            <Label>This Week</Label>
+                            <LineChart prefHeight="336.0" prefWidth="1182.0">
+                                <xAxis>
+                                    <CategoryAxis side="BOTTOM"/>
+                                </xAxis>
+                                <yAxis>
+                                    <NumberAxis side="LEFT"/>
+                                </yAxis>
+                            </LineChart>
+                        </VBox>
+                    <VBox>
+                            <Label>This Month</Label>
+                            <LineChart prefHeight="336.0" prefWidth="1182.0">
+                            <xAxis>
+                                <CategoryAxis side="BOTTOM"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis side="LEFT"/>
+                            </yAxis>
+                        </LineChart>
+                    </VBox>
+                    <VBox>
+                        <Label>This Quarter</Label>
+                        <LineChart prefHeight="336.0" prefWidth="1182.0">
+                            <xAxis>
+                                <CategoryAxis side="BOTTOM"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis side="LEFT"/>
+                            </yAxis>
+                        </LineChart>
+                    </VBox>
+                    <VBox>
+                        <Label>This Financial Year</Label>
+                        <LineChart prefHeight="336.0" prefWidth="1182.0">
+                            <xAxis>
+                                <CategoryAxis side="BOTTOM"/>
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis side="LEFT"/>
+                            </yAxis>
+                        </LineChart>
+                    </VBox>
+                </TilePane>
+                <TilePane prefHeight="200.0" prefWidth="200.0">
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                    <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="650.0">
+                        <center>
+                            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <top>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="560.0"
+                                          BorderPane.alignment="CENTER">
+                                        <ImageView fx:id="salesPaymentDueCautionImageView" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                        <Label prefHeight="16.0" prefWidth="181.0" text="  Sales Payment Due">
+                                            <font>
+                                                <Font size="20.0"/>
+                                            </font>
+                                        </Label>
+                                    </HBox>
+                                </top>
+                                <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                </padding>
+                                <center>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                        <TilePane alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="560.0">
+                                            <Button mnemonicParsing="false" text="Export to CSV" prefHeight="60" prefWidth="152">
+                                                <graphic>
+                                                    <ImageView fx:id="exportToCSVImageView1"/>
+                                                </graphic>
+                                            </Button>
+                                            <Button mnemonicParsing="false" text="Export to Excel" prefHeight="60" prefWidth="152.5">
+                                                <graphic>
+                                                    <ImageView fx:id="exportToExcelImageView1"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                            <Button mnemonicParsing="false" text="Export to PDF" prefHeight="60" prefWidth="152">
+                                                <graphic>
+                                                    <ImageView fx:id="exportToPDFImageView1"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                            <Button mnemonicParsing="false" text="Print" prefHeight="60" prefWidth="152">
+                                                <graphic>
+                                                    <ImageView fx:id="printImageView1"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                        </TilePane>
+                                        <TableView prefHeight="381.0" prefWidth="560.0" tableMenuButtonVisible="true">
+                                            <columns>
+                                                <TableColumn prefWidth="75.0" text="Customer"/>
+                                                <TableColumn prefWidth="75.0" text="Invoice No."/>
+                                                <TableColumn prefWidth="75.0" text="Due Amount"/>
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </VBox>
+                                </center>
+                            </BorderPane>
+                        </center>
+                        <bottom>
+                            <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <buttons>
+                                    <Button mnemonicParsing="false" text="Previous" />
+                                    <Button mnemonicParsing="false" text="Next" />
+                                </buttons>
+                                <BorderPane.margin>
+                                    <Insets right="20.0" />
+                                </BorderPane.margin>
+                            </ButtonBar>
+                        </bottom>
+                    </BorderPane>
+                    <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="650.0">
+                        <center>
+                            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <top>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="560.0"
+                                          BorderPane.alignment="CENTER">
+                                        <ImageView fx:id="purchasePaymentDueCautionImageView"  pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                        <Label prefHeight="16.0" prefWidth="181.0" text="  Purchase Payment Due">
+                                            <font>
+                                                <Font size="20.0"/>
+                                            </font>
+                                        </Label>
+                                    </HBox>
+                                </top>
+                                <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                </padding>
+                                <center>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                        <TilePane alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="560.0">
+                                            <Button mnemonicParsing="false" text="Export to CSV" prefHeight="60" prefWidth="152">
+                                                <graphic>
+                                                    <ImageView fx:id="exportToCSVImageView2"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                            <Button mnemonicParsing="false" text="Export to Excel" prefHeight="60" prefWidth="152.5">
+                                                <graphic>
+                                                    <ImageView fx:id="exportToExcelImageView2"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                            <Button mnemonicParsing="false" text="Export to PDF" prefHeight="60" prefWidth="152">
+                                                <graphic>
+                                                    <ImageView fx:id="exportToPDFImageView2"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                            <Button mnemonicParsing="false" text="Print" prefHeight="60" prefWidth="152">
+                                                <graphic>
+                                                    <ImageView fx:id="printImageView2"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                        </TilePane>
+                                        <TableView prefHeight="381.0" prefWidth="560.0" tableMenuButtonVisible="true">
+                                            <columns>
+                                                <TableColumn prefWidth="75.0" text="Supplier"/>
+                                                <TableColumn prefWidth="75.0" text="Reference No."/>
+                                                <TableColumn prefWidth="75.0" text="Due Amount"/>
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </VBox>
+                                </center>
+                            </BorderPane>
+                        </center>
+                        <bottom>
+                            <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <buttons>
+                                    <Button mnemonicParsing="false" text="Previous" />
+                                    <Button mnemonicParsing="false" text="Next" />
+                                </buttons>
+                                <BorderPane.margin>
+                                    <Insets right="20.0" />
+                                </BorderPane.margin>
+                            </ButtonBar>
+                        </bottom>
+                    </BorderPane>
+                    <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="650.0">
+                        <center>
+                            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <top>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="560.0"
+                                          BorderPane.alignment="CENTER">
+                                        <ImageView fx:id="productStockAlertCautionImageView" pickOnBounds="true"
+                                                   preserveRatio="true"/>
+                                        <Label prefHeight="16.0" prefWidth="181.0" text="  Product Stock Alert">
+                                            <font>
+                                                <Font size="20.0"/>
+                                            </font>
+                                        </Label>
+                                    </HBox>
+                                </top>
+                                <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                </padding>
+                                <center>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                                        <TilePane alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="560.0">
+                                            <Button mnemonicParsing="false" text="Export to CSV" prefHeight="60" prefWidth="152">
+                                                <graphic>
+                                                    <ImageView fx:id="exportToCSVImageView3"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                            <Button mnemonicParsing="false" text="Export to Excel" prefHeight="60" prefWidth="152.5">
+                                                <graphic>
+                                                    <ImageView fx:id="exportToExcelImageView3"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                            <Button mnemonicParsing="false" text="Export to PDF" prefHeight="60" prefWidth="152">
+                                                <graphic>
+                                                    <ImageView fx:id="exportToPDFImageView3"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                            <Button mnemonicParsing="false" text="Print" prefHeight="60" prefWidth="152">
+                                                <graphic>
+                                                    <ImageView fx:id="printImageView3"  pickOnBounds="true" preserveRatio="true" />
+                                                </graphic>
+                                            </Button>
+                                        </TilePane>
+                                        <TableView prefHeight="381.0" prefWidth="560.0" tableMenuButtonVisible="true">
+                                            <columns>
+                                                <TableColumn prefWidth="75.0" text="Product"/>
+                                                <TableColumn prefWidth="75.0" text="Location"/>
+                                                <TableColumn prefWidth="75.0" text="Current Stock"/>
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                                            </columnResizePolicy>
+                                        </TableView>
+                                    </VBox>
+                                </center>
+                            </BorderPane>
+                        </center>
+                        <bottom>
+                            <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <buttons>
+                                    <Button mnemonicParsing="false" text="Previous" />
+                                    <Button mnemonicParsing="false" text="Next" />
+                                </buttons>
+                                <BorderPane.margin>
+                                    <Insets right="20.0" />
+                                </BorderPane.margin>
+                            </ButtonBar>
+                        </bottom>
+                    </BorderPane>
+                </TilePane>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
