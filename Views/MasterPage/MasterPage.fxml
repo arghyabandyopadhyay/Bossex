@@ -610,7 +610,7 @@
     </top>
     <bottom>
         <HBox alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="1200.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
-            <Label prefHeight="26.0" prefWidth="1044.0" text="Bossex v2020.1 | Copyright &#169; 2020 All rights reserved." textFill="WHITE">
+            <Label prefHeight="26.0" prefWidth="1044.0" text="Bossex v2021.1 | Copyright &#169; 2021 All rights reserved." textFill="WHITE">
                 <font>
                     <Font size="14.0" />
                 </font>

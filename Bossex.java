@@ -40,11 +40,10 @@ public class Bossex extends Application {
     void initialise() {
         universalUtility=new UniversalUtility();
         driverClass="com.mysql.cj.jdbc.Driver";
-//        apiUrl="jdbc:mysql://localhost:3306/Bossex?characterEncoding=latin1";
-//        user="BossexClient";
+//      apiUrl="jdbc:mysql://localhost:3306/Bossex?characterEncoding=latin1";
         apiUrl="jdbc:mysql://localhost:3306/BusinessBuddy?characterEncoding=latin1";
-        user="BusinessBuddyClient";
-        password="businessGenie9@gmail.com";
+        user=CredentialsClass.user;
+        password=CredentialsClass.password;
         baseURL= "/BusinessGenie/app/Bossex/";
         appTitle="Bossex : ";
         databaseAccessor=new DatabaseAccessor();
