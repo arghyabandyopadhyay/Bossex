@@ -43,11 +43,11 @@ public class LoginPage implements Initializable {
 
     public void getMasterPage(javafx.event.ActionEvent event)
     {
-        List<UsersModel> userList=null;
-        //userList= Bossex.apiAccessor.getUserList();
+        List<UsersModel> userList;
+        userList= Bossex.databaseAccessor.getUserList();
         String usernameTfText= usernameTf.getText();
         String passwordTfText=passwordTf.getText();
-        /*for (UsersModel usersTemplate : userList){
+        for (UsersModel usersTemplate : userList){
             if(passwordTfText.equals(usersTemplate.getPassword()) && usernameTfText.equals(usersTemplate.getuserId()))
             {
                 usernameTf.clear();
@@ -60,18 +60,17 @@ public class LoginPage implements Initializable {
                 Bossex.permission[2]=perm[2] == '1';
                 Bossex.permission[3]=perm[3] == '1';
                 Bossex.permission[4]=perm[4] == '1';
-                Bossex.universalUtility.nextPage(event,"MasterPage.fxml","Dashboard",false);
+                Bossex.universalUtility.nextPage(event,"MasterPage.fxml","Admin",false);
                 isAuthenticated=true;
             }
         }
-         */
-        Bossex.permission[0]=true;
-        Bossex.permission[1]=true;
-        Bossex.permission[2]=true;
-        Bossex.permission[3]=true;
-        Bossex.permission[4]=true;
-        Bossex.universalUtility.nextPage(event,"MasterPage.fxml","Admin",false);
-        isAuthenticated=true;
+//        Bossex.permission[0]=true;
+//        Bossex.permission[1]=true;
+//        Bossex.permission[2]=true;
+//        Bossex.permission[3]=true;
+//        Bossex.permission[4]=true;
+//        Bossex.universalUtility.nextPage(event,"MasterPage.fxml","Admin",false);
+//        isAuthenticated=true;
         if(!isAuthenticated)
         {
             JOptionPane.showMessageDialog(null,"Authorization Unsuccessful!!","Error!!",JOptionPane.WARNING_MESSAGE);

@@ -1,6 +1,6 @@
 package BusinessGenie.app.Bossex;
 
-import BusinessGenie.app.Bossex.Api.ApiAccessor;
+import BusinessGenie.app.Bossex.Database.DatabaseAccessor;
 import BusinessGenie.app.Bossex.Models.UsersModel;
 import BusinessGenie.app.Bossex.Services.UniversalUtility;
 import javafx.animation.FadeTransition;
@@ -36,22 +36,24 @@ public class Bossex extends Application {
     public static UniversalUtility universalUtility;
     public static boolean[] permission=new boolean[5];
     public static TabPane masterTabPane;
-    public static ApiAccessor apiAccessor;
+    public static DatabaseAccessor databaseAccessor;
     void initialise() {
         universalUtility=new UniversalUtility();
-        driverClass="com.mysql.jdbc.Driver";
-        apiUrl="jdbc:mysql://localhost:3306/Bossex?characterEncoding=latin1";
-        user="BossexClient";
+        driverClass="com.mysql.cj.jdbc.Driver";
+//        apiUrl="jdbc:mysql://localhost:3306/Bossex?characterEncoding=latin1";
+//        user="BossexClient";
+        apiUrl="jdbc:mysql://localhost:3306/BusinessBuddy?characterEncoding=latin1";
+        user="BusinessBuddyClient";
         password="businessGenie9@gmail.com";
         baseURL= "/BusinessGenie/app/Bossex/";
         appTitle="Bossex : ";
-        //apiAccessor=new ApiAccessor();
+        databaseAccessor=new DatabaseAccessor();
     }
     @Override
     public void start(Stage stage) {
         initialise();
         final ImageView imv = new ImageView();
-        Image image1 = new Image(getClass().getResource(Bossex.baseURL+"Resources/BossexSplashScreen.png").toExternalForm());
+        Image image1 = new Image(Objects.requireNonNull(getClass().getResource(Bossex.baseURL + "Resources/BossexSplashScreen.png")).toExternalForm());
         imv.setImage(image1);
         StackPane root1 = new StackPane();
         root1.getChildren().add(imv);
@@ -74,7 +76,7 @@ public class Bossex extends Application {
                         public void run() {
                             initialiseScenes();
                             //the login page is opened by this code.
-                            Parent root = null;
+                            Parent root;
                             try {
                                 root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL + "Views/LoginPage/LoginPage.fxml")));
                             } catch (IOException e) {
@@ -99,14 +101,13 @@ public class Bossex extends Application {
             scene[0] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL + "Views/LoginPage/LoginPage.fxml"))));
             scene[1] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL + "Views/MasterPage/MasterPage.fxml"))));
             scene[2] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL + "Views/SettingsPage/SettingsPage.fxml"))));
-
-            /*scene[3] = new Scene(FXMLLoader.load(getClass().getResource(Bossex.baseURL+"Views/Fxmls/SalesManager/SalesManagementPage.fxml")));
-            scene[4] = new Scene(FXMLLoader.load(getClass().getResource(Bossex.baseURL+"Views/Fxmls/ReportManager/ReportManagementPage.fxml")));
-            scene[5] = new Scene(FXMLLoader.load(getClass().getResource(Bossex.baseURL+"Views/Fxmls/InventoryManager/InventoryManagementPage.fxml")));
-            scene[6] = new Scene(FXMLLoader.load(getClass().getResource(Bossex.baseURL+"Views/Fxmls/UserManager/UserManagementPage.fxml")));
-            scene[7] = new Scene(FXMLLoader.load(getClass().getResource(Bossex.baseURL+"Views/Fxmls/UserManager/CreateUserPage.fxml")));
-            scene[8] = new Scene(FXMLLoader.load(getClass().getResource(Bossex.baseURL+"Views/Fxmls/CustomerManager/CustomerManagementPage.fxml")));
-            scene[9] = new Scene(FXMLLoader.load(getClass().getResource(Bossex.baseURL+"Views/Fxmls/SalesManager/ShowPreviousBills.fxml")));*/
+//            scene[3] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL+"Views/Fxmls/SalesManager/SalesManagementPage.fxml"))));
+//            scene[4] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL+"Views/Fxmls/ReportManager/ReportManagementPage.fxml"))));
+//            scene[5] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL+"Views/Fxmls/InventoryManager/InventoryManagementPage.fxml"))));
+//            scene[6] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL+"Views/Fxmls/UserManager/UserManagementPage.fxml"))));
+//            scene[7] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL+"Views/Fxmls/UserManager/CreateUserPage.fxml"))));
+//            scene[8] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL+"Views/Fxmls/CustomerManager/CustomerManagementPage.fxml"))));
+//            scene[9] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL+"Views/Fxmls/SalesManager/ShowPreviousBills.fxml"))));
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
             ex.printStackTrace();
