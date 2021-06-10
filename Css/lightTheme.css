@@ -396,3 +396,175 @@
     -fx-image: url("/BusinessGenie/app/Bossex/Resources/settings.png");
 }
 
+#butt1 {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/window-min.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#butt1:hover {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/window-min-over.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#butt2 {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/window-close.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#butt2:hover {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/window-close-over.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#butt3 {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/reload.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#butt4 {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/settings.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#butt5 {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/search-clear.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#butt5:hover {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/search-clear-over.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#butt6 {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+#Content {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/texture.png");
+    -fx-background-repeat: repeat;
+}
+
+#newInvoiceBtn {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/invoice.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#showPrevInvoicesBtn {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/invoices.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#customerBtn {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/customer.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+
+#inventoryBtn {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/inventory.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#addBtn {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/addIcon.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#createItemBtn,#createUserBtn,#createTodoBtn {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/addIcon.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#createItemUsingBillBtn{
+   -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/scanIcon.png");
+   -fx-background-color: transparent;
+   -fx-border-color: transparent;
+   -fx-background-repeat: no-repeat;
+}
+#createItemUsingFileBtn{
+   -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/searchFileIcon.png");
+   -fx-background-color: transparent;
+   -fx-border-color: transparent;
+   -fx-background-repeat: no-repeat;
+}
+#startEditBtn{
+     -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/editIcon.png");
+     -fx-background-color: transparent;
+     -fx-border-color: transparent;
+     -fx-background-repeat: no-repeat;
+}
+#cnfEditBtn{
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/saveIcon.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#cancelBtn{
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/cancelIcon.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#printBtn{
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/printIcon.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#deleteBtn {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/deleteIcon.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#clrBtn {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/clearIcon.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#checkOutBtn {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/checkOutIcon.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#settingsBtn {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/settings.png");
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-repeat: no-repeat;
+}
+#ap {
+    -fx-background-image: url("/BusinessGenie/app/Bossex/Resources/texture.png");
+    -fx-background-repeat: repeat;
+}
+
+
+

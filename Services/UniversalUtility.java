@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.util.ListIterator;
+import java.util.Objects;
 
 import static BusinessGenie.app.Bossex.Bossex.masterTabPane;
 
@@ -24,7 +25,7 @@ public class UniversalUtility {
         {
             //get the pre defines theme from database
             //scene.getStylesheets().add(getClass().getResource(Bossex.baseURL+"Css/"+ Bossex.userDetails.getTheme()+"Theme.css").toExternalForm());
-            scene.getStylesheets().add(getClass().getResource(Bossex.baseURL+"Css/lightTheme.css").toExternalForm());
+            scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource(Bossex.baseURL + "Css/lightTheme.css")).toExternalForm());
             Stage stage=new Stage();
             scene.setUserData(event);
             stage.setTitle(Bossex.appTitle+ title);
@@ -116,7 +117,7 @@ public class UniversalUtility {
         }
     }
     public static void addTab(String fxmlUrl,String resourcesUrl,String tabName) throws IOException {
-        Parent loader = FXMLLoader.load(UniversalUtility.class.getResource(Bossex.baseURL+fxmlUrl));
+        Parent loader = FXMLLoader.load(Objects.requireNonNull(UniversalUtility.class.getResource(Bossex.baseURL + fxmlUrl)));
         Tab tab = new Tab(tabName,loader);
         ImageView imageView=new ImageView(new Image(UniversalUtility.class.getResource(Bossex.baseURL+resourcesUrl).toExternalForm()));
         imageView.setFitHeight(20);
