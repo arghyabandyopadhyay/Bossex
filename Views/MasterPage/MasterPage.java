@@ -133,6 +133,7 @@ public class MasterPage implements Initializable {
     public ImageView calculatorToolImageView;
     public ImageView spreadSheetToolImageView;
     public ImageView spotifyToolImageView;
+    public ImageView whatsappToolImageView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -445,5 +446,8 @@ public class MasterPage implements Initializable {
     }
 
     public void spotifyToolButtonAction(ActionEvent actionEvent) {
+    }
+
+    public void whatsappToolButtonAction(ActionEvent actionEvent) {
     }
 }

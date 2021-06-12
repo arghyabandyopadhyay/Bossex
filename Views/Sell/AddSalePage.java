@@ -29,41 +29,15 @@ public class AddSalePage  implements Initializable {
     /**
      * Buttons
      */
-//    public Button newInvoiceBtn;
-//    public Button showPrevInvoicesBtn;
-//    public Button checkOutBtn;
-//    public Button customerBtn;
-//    public Button addBtn;
-//    public Button deleteBtn;
-//    public Button closeButton;
-//    public Button inventoryBtn;
-//    public Button settingsBtn;
 
-    /**
-     * MenuItems
-     */
-    public MenuItem newInvoiceMenu;
-    public MenuItem closeMenu;
-    public MenuItem exitMenu;
-    public MenuItem checkOutMenu;
-    public MenuItem settingsMenu;
-    public MenuItem clearMenu;
-    public MenuItem deleteMenu;
-    public MenuItem showInvoicesMenu;
-    public MenuItem helpMenuItem;
-    public MenuItem gettingStartedMenuItem;
-    public MenuItem demoMenuItem;
-    public MenuItem tipOfDayMenuItem;
-    public MenuItem contactSupportMenuItem;
-    public MenuItem reportBugMenuItem;
-    public MenuItem submitFeedbackMenuItem;
-    public MenuItem updatesMenuItem;
-    public MenuItem aboutMenuItem;
-    public MenuItem enterPresentationMenu;
-    public MenuItem distractionFreeMenu;
-    public MenuItem todoMenu;
-    public MenuItem undoMenu;
-    public MenuItem redoMenu;
+    public Button addBtn;
+    public Button checkOutButton;
+    public Button clearButton;
+    public Button deleteButton;
+    public Button undoButton;
+    public Button redoButton;
+    public Button newBillButton;
+    public Button cnfEditBtn;
 
     /**
      * Text fields
@@ -113,8 +87,7 @@ public class AddSalePage  implements Initializable {
     static int ivnNum=0,pr=0;
     public HBox itemHbox;
     public ListView<String> inventoryList;
-    public MenuItem inventoryMenu;
-    public MenuItem customerMenu;
+
     int pos=0,serial=0;
     double totalInvoiceAmount=0;
     String st="";
@@ -352,12 +325,15 @@ public class AddSalePage  implements Initializable {
             customerMnoTf.requestFocus();
         }
     }
-    //MenuItems event handlers
-    public void undoMenuAction(ActionEvent event) {
+    //ButtonItems event handlers
+    public void undoButtonAction(ActionEvent event) {
     }
-    public void redoMenuAction(ActionEvent event) {
+    public void redoButtonAction(ActionEvent event) {
     }
-    public void clearMenuAction(ActionEvent event) {
+    public void checkOutButtonAction(ActionEvent event) {
+        Bossex.universalUtility.nextPage(event,"Sell/CheckoutPage.fxml","Checkout Page",true);
+    }
+    public void clearButtonAction(ActionEvent event) {
         itemTf.setText("");
         qtyTf.setText("");
         taxTf.setText("");
@@ -365,7 +341,7 @@ public class AddSalePage  implements Initializable {
         discountTf.setText("");
         totalTf.setText("₹ 0.0");
     }
-    public void deleteMenuAction(ActionEvent event) {
+    public void deleteButtonAction(ActionEvent event) {
         ObservableList<InvoiceTableItem> selectedItem = invoiceTable.getSelectionModel().getSelectedItems();
         if(selectedItem.size()!=0)
         {
@@ -393,7 +369,7 @@ public class AddSalePage  implements Initializable {
             JOptionPane.showMessageDialog(null,"Please Select an entry from the Invoice Table","Error!!",JOptionPane.ERROR_MESSAGE);
         }
     }
-    public void newInvoiceMenuAction(ActionEvent event) {
+    public void newInvoiceButtonAction(ActionEvent event) {
         customerMnoTf.setText("");
         customerNameTf.setText("");
         taxTf.setText("");
@@ -413,56 +389,6 @@ public class AddSalePage  implements Initializable {
         totalQtyTf.setText("0.0");
         totalItemsTf.setText("0");
     }
-    public void settingsMenuAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"SettingsPage.fxml","Settings",true);
-    }
-    public void checkOutMenuAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Sell/CheckoutPage.fxml","Checkout Page",true);
-    }
-    public void closeMenuAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event, "MasterPage.fxml", "DashBoard", false);
-    }
-    public void exitMenuAction(ActionEvent event) {
-        System.exit(0);
-    }
-    public void showInvoicesMenuAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Sell/ShowPreviousBills.fxml","Previous Invoice",false);
-    }
-    public void todoMenuAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"TodoPage.fxml","Todo",true);
-    }
-    public void enterPresentationMenuAction(ActionEvent event) {
-    }
-    public void distractionFreeAction(ActionEvent event) {
-    }
-    public void helpMenuItemAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Help/HelpPage.fxml","Help!!",true);
-    }
-    public void gettingStartedMenuItemAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Help/GettingStartedPage.fxml","Getting Started",true);
-    }
-    public void demoMenuItemAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Help/DemosAndScreencastPage.fxml","Demos And Screencast",true);
-    }
-    public void tipOfDayMenuItemAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Help/TipOfTheDay.fxml","Tip Of The Day",true);
-    }
-    public void contactSupportMenuItemAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Help/ContactSupport.fxml","Contact Support",true);
-    }
-    public void reportBugMenuItemAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Help/ReportBugPage.fxml","Report Bug",true);
-    }
-    public void submitFeedbackMenuItemAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Help/SubmitFeedbackPage.fxml","Submit Feedback",true);
-    }
-    public void updatesMenuItemAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Help/UpdatePage.fxml","Updates",true);
-    }
-    public void aboutMenuItemAction(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"Help/AboutPage.fxml","About",true);
-    }
-
 
     /**
      * Methods
@@ -611,10 +537,73 @@ public class AddSalePage  implements Initializable {
 
     }
 
-    public void inventoryMenuClicked(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"InventoryManager/InventoryManagementPage.fxml","Inventory Manager",true);
+    public void cnfEditButtonAction(ActionEvent actionEvent) {
     }
-    public void customerMenuClicked(ActionEvent event) {
-        Bossex.universalUtility.nextPage(event,"CustomerManager/CustomerManagementPage.fxml","Customer Manager",true);
+
+    public void addBtnAction(ActionEvent event) {
+        String productName,qty,unitPrice,discount,tax,total;
+        try {
+            qty= qtyTf.getText();
+            this.qty+=Double.parseDouble(qty);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Quantity should be a number.","Error!!",JOptionPane.ERROR_MESSAGE);
+            qtyTf.requestFocus();
+            return;
+        }
+        try {
+            unitPrice= priceTf.getText();
+            Double.parseDouble(unitPrice);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Price should be a number.","Error!!",JOptionPane.ERROR_MESSAGE);
+            priceTf.requestFocus();
+            return;
+        }
+        try {
+            discount=discountTf.getText();
+            Double.parseDouble(discount);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Discount should be a number.","Error!!",JOptionPane.ERROR_MESSAGE);
+            discountTf.requestFocus();
+            return;
+        }
+        try {
+            tax=taxTf.getText();
+            Double.parseDouble(tax);
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Tax should be a number.","Error!!",JOptionPane.ERROR_MESSAGE);;
+            taxTf.requestFocus();
+            return;
+        }
+        total=totalTf.getText();
+        total=total.indexOf('₹')==-1?total:total.substring(1);
+        productName=customerNameTf.getText();
+        pos++;
+        //tPrice_String=tPrice_String.substring(1)+"="+tPrice;
+        double totalPrice=Double.parseDouble(total);
+        totalInvoiceAmount+=totalPrice;
+        data.add(new InvoiceTableItem(pos,productName,unitPrice,qty,discount,tax,total));
+        invoiceTable.setItems(data);
+        totalAmountTf.setText(String.valueOf(ceil(totalInvoiceAmount)));
+        finalAmountTf.setText(String.valueOf(ceil(totalInvoiceAmount-sOff)));
+        balanceAmountTf.setText(String.valueOf(ceil(totalInvoiceAmount-paymentAmount-sOff)));
+        totalItemsTf.setText(String.valueOf(pos));
+        totalQtyTf.setText(String.valueOf(Math.round(this.qty*100.0)/100.0));
+        totalTf.setText("₹ 0.0");
+        itemTf.setText("");
+        discountTf.setText("");
+        priceTf.setText("");
+        taxTf.setText("");
+        qtyTf.setText("");
+        priceTf.setText("");
+        itemTf.requestFocus();
+        st="";
     }
 }

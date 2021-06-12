@@ -507,6 +507,11 @@
                             <ImageView fx:id="spotifyToolImageView"  pickOnBounds="true" preserveRatio="true" />
                         </graphic>
                     </Button>
+                    <Button onAction="#whatsappToolButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="WhatsApp" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="whatsappToolImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
                 </ToolBar>
             </Tab>
             <Tab closable="false" text="Settings">

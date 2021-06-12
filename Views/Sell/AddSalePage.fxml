@@ -1,66 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
 <BorderPane prefHeight="700" prefWidth="1200" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BusinessGenie.app.Bossex.Views.Sell.AddSalePage">
     <top>
         <VBox prefHeight="58.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
-            <MenuBar>
-                <Menu text="_File">
-                    <MenuItem fx:id="newInvoiceMenu" onAction="#newInvoiceMenuAction" accelerator="Ctrl+N" text="_New Bill" />
-                    <MenuItem fx:id="todoMenu" onAction="#todoMenuAction" text="_Todo" />
-                    <MenuItem fx:id="showInvoicesMenu" onAction="#showInvoicesMenuAction" accelerator="Ctrl+B" text="_Invoices" />
-                    <MenuItem fx:id="settingsMenu" onAction="#settingsMenuAction" accelerator="Ctrl+I" text="Se_ttings" />
-                    <MenuItem fx:id="checkOutMenu" onAction="#checkOutMenuAction" accelerator="Ctrl+S" text="_Check Out" />
-                    <MenuItem fx:id="closeMenu" onAction="#closeMenuAction" accelerator="Ctrl+X" text="_Close" />
-                    <MenuItem fx:id="exitMenu" onAction="#exitMenuAction" accelerator="Ctrl+Q" text="E_xit Business Buddy" />
-                </Menu>
-                <Menu text="_Edit">
-                    <MenuItem fx:id="undoMenu" onAction="#undoMenuAction" accelerator="Ctrl+Z" text="_Undo" />
-                    <MenuItem fx:id="redoMenu" onAction="#redoMenuAction" accelerator="Ctrl+Y" text="_Redo" />
-                    <MenuItem fx:id="clearMenu" onAction="#clearMenuAction" accelerator="Ctrl+R" text="_Clear" />
-                    <MenuItem fx:id="deleteMenu" onAction="#deleteMenuAction" accelerator="Delete" text="_Delete" />
-                </Menu>
-                <Menu text="_View">
-                    <MenuItem fx:id="enterPresentationMenu" onAction="#enterPresentationMenuAction" text="_Enter Presentation Mode" />
-                    <MenuItem fx:id="distractionFreeMenu" onAction="#distractionFreeAction" text="E_nter Distraction Free Mode" />
-                    <MenuItem text="_ToolBar" />
-                    <MenuItem text="T_ool Windows Bar" />
-                    <MenuItem text="_Status Bar" />
-                    <MenuItem text="N_avigation Bar" />
-                </Menu>
-                <Menu text="Satistics">
-                    <MenuItem fx:id="helpMenuItem" onAction="#helpMenuItemAction" text="_Help" />
-                    <MenuItem fx:id="gettingStartedMenuItem" onAction="#gettingStartedMenuItemAction" text="_Getting Started" />
-                    <MenuItem fx:id="demoMenuItem" onAction="#demoMenuItemAction" text="_Demos And Screencasts" />
-                    <MenuItem fx:id="tipOfDayMenuItem" onAction="#tipOfDayMenuItemAction" text="_Tip of the Day" />
-                    <MenuItem fx:id="contactSupportMenuItem" onAction="#contactSupportMenuItemAction" text="_Contact Support" />
-                    <MenuItem fx:id="reportBugMenuItem" onAction="#reportBugMenuItemAction" text="_Submit a Bug report." />
-                    <MenuItem fx:id="submitFeedbackMenuItem" onAction="#submitFeedbackMenuItemAction" text="S_ubmit Feedback" />
-                    <MenuItem fx:id="updatesMenuItem" onAction="#updatesMenuItemAction" text="Ch_eck for Updates" />
-                    <MenuItem fx:id="aboutMenuItem" onAction="#aboutMenuItemAction" text="_About" />
-                </Menu>
-                <Menu text="_Statistics">
-                    <MenuItem fx:id="inventoryMenu" onAction="#inventoryMenuClicked" text="_Inventory Menu" />
-                    <MenuItem fx:id="customerMenu" onAction="#customerMenuClicked" text="_Customer Started" />
-                </Menu>
-            </MenuBar>
             <HBox prefHeight="100.0" prefWidth="200.0">
+                <Button fx:id="newBillButton" onAction="#newInvoiceButtonAction" prefHeight="32.0" prefWidth="32.0" >
+                <tooltip>
+                    <Tooltip text="New Invoice" />
+                </tooltip>
+            </Button>
+            <Button fx:id="clearButton" alignment="CENTER" focusTraversable="false" onAction="#clearButtonAction" prefHeight="32.0" prefWidth="32.0">
+                <tooltip>
+                    <Tooltip text="Clear the fields" />
+                </tooltip>
+            </Button>
+            <Button fx:id="addBtn"  focusTraversable="false" mnemonicParsing="false" onAction="#addBtnAction" prefHeight="32.0" prefWidth="32">
+                <tooltip>
+                    <Tooltip text="Add to Table" />
+                </tooltip>
+            </Button>
+                <Button fx:id="cnfEditBtn" onAction="#cnfEditButtonAction" prefHeight="32.0" prefWidth="32.0" >
+                    <tooltip>
+                        <Tooltip text="Save" />
+                    </tooltip>
+                </Button>
+                <Button fx:id="checkOutButton" onAction="#checkOutButtonAction" prefHeight="32.0" prefWidth="32.0" >
+                    <tooltip>
+                        <Tooltip text="Checkout" />
+                    </tooltip>
+                </Button>
+                <Button fx:id="undoButton" onAction="#undoButtonAction" prefHeight="32.0" prefWidth="34.0">
+                    <tooltip>
+                        <Tooltip text="Undo" />
+                    </tooltip>
+                </Button>
+                <Button fx:id="redoButton" onAction="#redoButtonAction" prefHeight="32.0" prefWidth="32.0">
+                    <tooltip>
+                        <Tooltip text="Redo" />
+                    </tooltip>
+                </Button>
+                <Button fx:id="deleteButton" onAction="#deleteButtonAction" prefHeight="32.0" prefWidth="32.0">
+                    <tooltip>
+                        <Tooltip text="Delete Entry" />
+                    </tooltip>
+                </Button>
                 <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="612.0" HBox.hgrow="ALWAYS">
                     <Label prefHeight="35.0" prefWidth="44.0" text="Date:">
                         <font>
@@ -169,7 +157,7 @@
                             <font>
                                 <Font size="15.0" />
                             </font></Label>
-                        <TextField fx:id="totalTf" focusTraversable="false" editable="false" prefHeight="32.0" prefWidth="206.0" text="₹ 0.0">
+                        <TextField fx:id="totalTf" editable="false" focusTraversable="false" prefHeight="32.0" prefWidth="206.0" text="₹ 0.0">
                             <font>
                                 <Font size="15.0" />
                             </font></TextField>
@@ -235,7 +223,7 @@
                                     <font>
                                         <Font size="15.0" />
                                     </font></Label>
-                                <TextField fx:id="setOffTf"  onKeyPressed="#setOffTfKeyPressed" prefHeight="32.0" prefWidth="211.0" text="0.0">
+                                <TextField fx:id="setOffTf" onKeyPressed="#setOffTfKeyPressed" prefHeight="32.0" prefWidth="211.0" text="0.0">
                                     <font>
                                         <Font size="15.0" />
                                     </font></TextField>
@@ -255,7 +243,7 @@
                                     <font>
                                         <Font size="15.0" />
                                     </font></Label>
-                                <TextField fx:id="paymentValueTf" focusTraversable="false" onKeyPressed="#paymentValueTfKeyPressed" layoutX="619.0" layoutY="553.0" prefHeight="32.0" prefWidth="211.0" text="0.0">
+                                <TextField fx:id="paymentValueTf" focusTraversable="false" layoutX="619.0" layoutY="553.0" onKeyPressed="#paymentValueTfKeyPressed" prefHeight="32.0" prefWidth="211.0" text="0.0">
                                     <font>
                                         <Font size="15.0" />
                                     </font>
@@ -360,9 +348,8 @@
                     </Label>
                     <Label contentDisplay="RIGHT" prefHeight="16.0" prefWidth="46.0" text="Alt+F4" />
                 </HBox>
-                <ListView fx:id="inventoryList" visible="false"/>
+                <ListView fx:id="inventoryList" visible="false" />
             </VBox>
         </VBox>
     </right>
 </BorderPane>
-
