@@ -178,6 +178,9 @@
 #manageCustomersGroupsImageView{
     -fx-image: url("/BusinessGenie/app/Bossex/Resources/customerGroup.png");
 }
+#addCustomersGroupsImageView{
+    -fx-image: url("/BusinessGenie/app/Bossex/Resources/customerGroup.png");
+}
 #manageProductsImageView,#productTabImageView {
     -fx-image: url("/BusinessGenie/app/Bossex/Resources/manageProducts.png");
 }

@@ -1,6 +1,11 @@
 package BusinessGenie.app.Bossex.Views.Contacts;
 
 import BusinessGenie.app.Bossex.Bossex;
+import BusinessGenie.app.Bossex.Database.DatabaseAccessor;
+import BusinessGenie.app.Bossex.Models.Contacts.CustomersModel;
+import BusinessGenie.app.Bossex.Models.Contacts.CustomersModel;
+import BusinessGenie.app.Bossex.Models.Contacts.CustomersModel;
+import BusinessGenie.app.Bossex.Models.Contacts.CustomersModel;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -17,11 +23,12 @@ import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.ResourceBundle;
 
-import static BusinessGenie.app.Bossex.Services.UniversalUtility.getTabIndex;
 import static BusinessGenie.app.Bossex.Bossex.masterTabPane;
+import static BusinessGenie.app.Bossex.Services.UniversalUtility.*;
 
 public class CustomersPage implements Initializable {
     public BorderPane customerManagementBorderPane;
@@ -32,96 +39,97 @@ public class CustomersPage implements Initializable {
     public ImageView exportToExcelImageView1;
     public ImageView exportToPDFImageView1;
     public ImageView printImageView1;
-    public TableView customersTableView;
+    public TableView<CustomersModel> customersTableView;
+    public TableColumn<CustomersModel, String> nameTc;
+    public TableColumn<CustomersModel, String> emailTc;
+    public TableColumn<CustomersModel, String> pancardTc;
+    public TableColumn<CustomersModel, String> paytermDescTc;
+    public TableColumn<CustomersModel, Double> openingBalanceTc;
+    public TableColumn<CustomersModel, String> addedOnTc;
+    public TableColumn<CustomersModel, String> mnoTc;
+    public TableColumn<CustomersModel, Double> totalSellDueTc;
+    public TableColumn<CustomersModel, Double> totalSellReturnDueTc;
+    public TableColumn<CustomersModel, Void> actionTc;
+    public ObservableList<CustomersModel> customersModelObservableList;
+    public TableColumn<CustomersModel, Double> creditLimitTc;
+    public TableColumn<CustomersModel, Double> advanceBalanceTc;
+    public TableColumn<CustomersModel, String> customerGroupTc;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> entries = FXCollections.observableArrayList("25","50","100","200","500","1000","All");
-        entriesComboBox .setItems(entries);
+        nameTc.setCellValueFactory(
+                new PropertyValueFactory<>("name"));
+        emailTc.setCellValueFactory(
+                new PropertyValueFactory<>("emailId"));
+        pancardTc.setCellValueFactory(
+                new PropertyValueFactory<>("pancard"));
+        paytermDescTc.setCellValueFactory(
+                new PropertyValueFactory<>("paytermDesc"));
+        openingBalanceTc.setCellValueFactory(
+                new PropertyValueFactory<>("openingBalance"));
+        addedOnTc.setCellValueFactory(
+                new PropertyValueFactory<>("addedOn"));
+        mnoTc.setCellValueFactory(
+                new PropertyValueFactory<>("mNo"));
+        totalSellDueTc.setCellValueFactory(
+                new PropertyValueFactory<>("totalSellDue"));
+        totalSellReturnDueTc.setCellValueFactory(
+                new PropertyValueFactory<>("totalSellReturnDue"));
+        creditLimitTc.setCellValueFactory(
+                new PropertyValueFactory<>("creditLimit"));
+        advanceBalanceTc.setCellValueFactory(
+                new PropertyValueFactory<>("AdvanceBalance"));
+        customerGroupTc.setCellValueFactory(
+                new PropertyValueFactory<>("CustomerGroupName"));
+        List<CustomersModel> customersModelList = Bossex.databaseAccessor.getCustomers();
+        ObservableList<String> entries = FXCollections.observableArrayList("25", "50", "100", "200", "500", "1000", "All");
+        entriesComboBox.setItems(entries);
         entriesComboBox.setValue("25");
-        customersTableView.setFixedCellSize(25);
+        customersTableView.setFixedCellSize(35);
+        addButtonToTable();
+        customersModelObservableList = FXCollections.observableList(customersModelList);
+        customersTableView.setItems(customersModelObservableList);
         customersTableView.prefHeightProperty().bind(Bindings.size(customersTableView.getItems()).multiply(customersTableView.getFixedCellSize()).add(30));
     }
 
     public void addButtonAction(ActionEvent event) throws IOException {
-        int index=getTabIndex("Add Customers");
-        if(index==-1)
-        {
-            Parent loader = FXMLLoader.load(getClass().getResource(Bossex.baseURL+"Views/Contacts/AddCustomersPage.fxml"));
-            Tab tab = new Tab("Add Customers",loader);
-            ImageView imageView=new ImageView(new Image(getClass().getResource(Bossex.baseURL+"Resources/addContacts.png").toExternalForm()));
-            imageView.setFitHeight(20);
-            imageView.setFitWidth(20);
-            tab.setGraphic(imageView);
-            masterTabPane.getTabs().add(tab);
-            masterTabPane.getSelectionModel().select(masterTabPane.getTabs().size()-1);
-        }
-        else {
-            masterTabPane.getSelectionModel().select(index);
-        }
+        openTab("Views/Contacts/AddCustomersPage.fxml", "Resources/addContacts.png", "Add Customer", false);
     }
-//    private void addButtonToTable() {
-//        TableColumn<Data, Void> colBtn = new TableColumn("Button Column");
-//
-//        Callback<TableColumn<Data, Void>, TableCell<Data, Void>> cellFactory = new Callback<TableColumn<Data, Void>, TableCell<Data, Void>>() {
-//            @Override
-//            public TableCell<Data, Void> call(final TableColumn<Data, Void> param) {
-//                final TableCell<Data, Void> cell = new TableCell<Data, Void>() {
-//
-//                    private final Button btn = new Button("Action");
-//
-//                    {
-//                        btn.setOnAction((ActionEvent event) -> {
-//                            Data data = getTableView().getItems().get(getIndex());
-//                            System.out.println("selectedData: " + data);
-//                        });
-//                    }
-//                    @Override
-//                    public void updateItem(Void item, boolean empty) {
-//                        super.updateItem(item, empty);
-//                        if (empty) {
-//                            setGraphic(null);
-//                        } else {
-//                            setGraphic(btn);
-//                        }
-//                    }
-//                };
-//                return cell;
-//            }
-//        };
-//        colBtn.setCellFactory(cellFactory);
-//        customersTableView.getColumns().add(colBtn);
-//    }
-//    public class Data {
-//
-//        private int id;
-//        private String name;
-//
-//        private Data(int id, String name) {
-//            this.id = id;
-//            this.name = name;
-//        }
-//
-//        public int getId() {
-//            return id;
-//        }
-//
-//        public void setId(int ID) {
-//            this.id = ID;
-//        }
-//
-//        public String getName() {
-//            return name;
-//        }
-//
-//        public void setName(String nme) {
-//            this.name = nme;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return "id: " + id + " - " + "name: " + name;
-//        }
-//
-//    }
+
+    private void addButtonToTable() {
+
+        Callback<TableColumn<CustomersModel, Void>, TableCell<CustomersModel, Void>> cellFactory = new Callback<TableColumn<CustomersModel, Void>, TableCell<CustomersModel, Void>>() {
+            @Override
+            public TableCell<CustomersModel, Void> call(final TableColumn<CustomersModel, Void> param) {
+                return new TableCell<>() {
+
+                    private final Button btn = new Button("Delete");
+
+                    {
+                        btn.setOnAction((ActionEvent event) -> {
+                            boolean result = openConfirmDialog("Are you sure?", "Caution");
+                            if (result) {
+                                CustomersModel customersModel = getTableView().getItems().get(getIndex());
+                                DatabaseAccessor databaseAccessor = new DatabaseAccessor();
+                                databaseAccessor.deleteCustomer(customersModel);
+                                customersModelObservableList.remove(customersModel);
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void updateItem(Void item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty) {
+                            setGraphic(null);
+                        } else {
+                            setGraphic(btn);
+                        }
+                    }
+                };
+            }
+        };
+
+        actionTc.setCellFactory(cellFactory);
+    }
 }

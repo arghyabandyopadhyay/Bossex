@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="MasterPageRootPane" prefHeight="700" prefWidth="1200" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BusinessGenie.app.Bossex.Views.MasterPage.MasterPage">
+<BorderPane fx:id="MasterPageRootPane" prefHeight="700" prefWidth="1200" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BusinessGenie.app.Bossex.Views.MasterPage.MasterPage">
     <center>
         <TabPane fx:id="MainAreaTabPane" prefHeight="527.0" prefWidth="1200.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER" tabDragPolicy="REORDER"/>
     </center>
@@ -78,6 +78,11 @@
                     <Button onAction="#manageCustomersGroupsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Customer Groups" textAlignment="CENTER" wrapText="true">
                         <graphic>
                             <ImageView fx:id="manageCustomersGroupsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addCustomersGroupButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Add Customer Group" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addCustomersGroupsImageView"  pickOnBounds="true" preserveRatio="true" />
                         </graphic>
                     </Button>
                     <Button onAction="#importContactsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Import Contacts" textAlignment="CENTER" wrapText="true">
@@ -615,7 +620,7 @@
     </top>
     <bottom>
         <HBox alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="1200.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
-            <Label prefHeight="26.0" prefWidth="1044.0" text="Bossex v2021.1 | Copyright &#169; 2021 All rights reserved." textFill="WHITE">
+            <Label prefHeight="26.0" prefWidth="1044.0" text="Bossex v2022.1 | Copyright &#169; 2022 All rights reserved." textFill="WHITE">
                 <font>
                     <Font size="14.0" />
                 </font>

@@ -134,6 +134,7 @@ public class MasterPage implements Initializable {
     public ImageView spreadSheetToolImageView;
     public ImageView spotifyToolImageView;
     public ImageView whatsappToolImageView;
+    public ImageView addCustomersGroupsImageView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -373,6 +374,9 @@ public class MasterPage implements Initializable {
     }
     public void addCustomersButtonAction(ActionEvent event)throws IOException {
         openTab("Views/Contacts/AddCustomersPage.fxml","Resources/addContacts.png","Add Customers",false);
+    }
+    public void addCustomersGroupButtonAction(ActionEvent event)throws IOException {
+        openTab("Views/Contacts/AddCustomerGroupPage.fxml","Resources/customerGroup.png","Add Customer Group",false);
     }
     public void addSuppliersButtonAction(ActionEvent event)throws IOException {
         openTab("Views/Contacts/AddSuppliersPage.fxml","Resources/addSupplier.png","Add Suppliers",false);
