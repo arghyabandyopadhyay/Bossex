@@ -1,13 +1,12 @@
 package BusinessGenie.app.Bossex;
 
 import BusinessGenie.app.Bossex.Database.DatabaseAccessor;
-import BusinessGenie.app.Bossex.Models.UsersModel;
+import BusinessGenie.app.Bossex.Models.Users.UsersModel;
 import BusinessGenie.app.Bossex.Services.UniversalUtility;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.Image;
@@ -18,10 +17,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Objects;
+
+import static BusinessGenie.app.Bossex.Services.UniversalUtility.openMessageDialog;
 
 public class Bossex extends Application {
     public static  String driverClass;
@@ -40,8 +40,7 @@ public class Bossex extends Application {
     void initialise() {
         universalUtility=new UniversalUtility();
         driverClass="com.mysql.cj.jdbc.Driver";
-//      apiUrl="jdbc:mysql://localhost:3306/Bossex?characterEncoding=latin1";
-        apiUrl="jdbc:mysql://localhost:3306/BusinessBuddy?characterEncoding=latin1";
+        apiUrl="jdbc:mysql://localhost:3306/bossex?characterEncoding=latin1";
         user=CredentialsClass.user;
         password=CredentialsClass.password;
         baseURL= "/BusinessGenie/app/Bossex/";
@@ -75,12 +74,12 @@ public class Bossex extends Application {
                         public void run() {
                             initialiseScenes();
                             //the login page is opened by this code.
-                            Parent root;
-                            try {
-                                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL + "Views/LoginPage/LoginPage.fxml")));
-                            } catch (IOException e) {
-                                JOptionPane.showMessageDialog(null,e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
-                            }
+//                            Parent root;
+//                            try {
+//                                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL + "Views/LoginPage/LoginPage.fxml")));
+//                            } catch (IOException e) {
+//                                openMessageDialog(e.getMessage(),"Error!!");
+//                            }
                             Stage stage1=new Stage();
                             stage1.setTitle(appTitle+"Login");
                             stage1.setScene(Bossex.scene[0]);
@@ -89,7 +88,7 @@ public class Bossex extends Application {
                         }
                     });
                 }catch(InterruptedException n){
-                    JOptionPane.showMessageDialog(null,n.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+                    openMessageDialog(n.getMessage(),"Error!!");
                 }
             }
         }.start();
@@ -108,7 +107,7 @@ public class Bossex extends Application {
 //            scene[8] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL+"Views/Fxmls/CustomerManager/CustomerManagementPage.fxml"))));
 //            scene[9] = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(Bossex.baseURL+"Views/Fxmls/SalesManager/ShowPreviousBills.fxml"))));
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( ex.getMessage(),"Error!!");
             ex.printStackTrace();
         }
     }

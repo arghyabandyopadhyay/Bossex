@@ -4,13 +4,14 @@ import BusinessGenie.app.Bossex.Models.EmployeesTemplate;
 import BusinessGenie.app.Bossex.Models.InventoryTableItem;
 import javafx.collections.ObservableList;
 
-import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import BusinessGenie.app.Bossex.Bossex;
 import BusinessGenie.app.Bossex.Models.TodoTableItem;
-import BusinessGenie.app.Bossex.Models.UsersModel;
+import BusinessGenie.app.Bossex.Models.Users.UsersModel;
+
+import static BusinessGenie.app.Bossex.Services.UniversalUtility.openMessageDialog;
 
 public class ApiAccessor {
     private Connection connection;
@@ -20,7 +21,7 @@ public class ApiAccessor {
             Class.forName(Bossex.driverClass);
             connection = DriverManager.getConnection(Bossex.apiUrl, Bossex.user, Bossex.password);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "An error occurred while connecting MySQL database", "Error!!", JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( "An error occurred while connecting MySQL database", "Error!!");
             ex.printStackTrace();
         }
     }
@@ -28,8 +29,8 @@ public class ApiAccessor {
         if (connection != null) {
             try {
                 connection.close();
-            } catch (SQLException throwables) {
-                JOptionPane.showMessageDialog(null,throwables.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            } catch (SQLException throwable) {
+                openMessageDialog(throwable.getMessage(),"Error!!");
             }
         }
     }
@@ -39,51 +40,51 @@ public class ApiAccessor {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate("update Users set theme='"+theme+"' where uid ="+uid+";");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
 
 
-    public List<UsersModel> getUserList() {
-        try (
-                Statement stmnt = connection.createStatement();
-                ResultSet rs = stmnt.executeQuery("select * from Users");
-        ) {
-            List<UsersModel> usersList = new ArrayList<>();
-            while (rs.next()) {
-                String userId = rs.getString("userId");
-                String permission = rs.getString("permission");
-                String password = rs.getString("password");
-                String emailId = rs.getString("emailId");
-                String mNo = rs.getString("mNo");
-                int uid = rs.getInt("uid");
-                String theme=rs.getString("theme");
-                String name=rs.getString("Name");
-                UsersModel usersTemplate = new UsersModel(userId, permission, password, emailId, mNo, uid,theme,name);
-                usersList.add(usersTemplate);
-            }
-            return usersList;
-        }
-        catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null,e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
-            return null;
-        }
-    }
+//    public List<UsersModel> getUserList() {
+//        try (
+//                Statement stmnt = connection.createStatement();
+//                ResultSet rs = stmnt.executeQuery("select * from Users");
+//        ) {
+//            List<UsersModel> usersList = new ArrayList<>();
+//            while (rs.next()) {
+//                String userId = rs.getString("userId");
+//                String permission = rs.getString("permission");
+//                String password = rs.getString("password");
+//                String emailId = rs.getString("emailId");
+//                String mNo = rs.getString("mNo");
+//                int uid = rs.getInt("uid");
+//                String theme=rs.getString("theme");
+//                String name=rs.getString("Name");
+//                UsersModel usersTemplate = new UsersModel(userId, permission, password, emailId, mNo, uid,theme,name);
+//                usersList.add(usersTemplate);
+//            }
+//            return usersList;
+//        }
+//        catch (Exception e)
+//        {
+//            openMessageDialog(e.getMessage(),"Error!!");
+//            return null;
+//        }
+//    }
     public void addUser(String userId, String permission, String password, String emailId, String mNo,String name) {
         try {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate("Insert into Users(userId,permission,password,emailId,mNo,Name) values('" + userId + "','" + permission + "','" + password + "','" + emailId + "','" + mNo+ "','" + name + "');");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
     public void updateUser(UsersModel selectedItem) {
         try {
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate("update Users set name='"+selectedItem.getName()+"',userId='"+selectedItem.getuserId()+"',mNo='"+selectedItem.getMNo()+"',emailId='"+selectedItem.getEmailId()+"',permission='"+selectedItem.getPermission()+"',password='"+selectedItem.getPassword()+"' where uid ="+selectedItem.getUid()+";");
+            stmt.executeUpdate("update Users set name='"+selectedItem.getName()+"',userId='"+selectedItem.getuserId()+"',mNo='"+selectedItem.getMNo()+"',emailId='"+selectedItem.getEmailId()+"',permission='"+selectedItem.getPermission()+"',password='"+selectedItem.getPassword()+"' where uid ="+selectedItem.getId()+";");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
     public void deleteUser(ObservableList<UsersModel> selectedItem) {
@@ -91,11 +92,11 @@ public class ApiAccessor {
             Statement stmt = connection.createStatement();
             for (UsersModel usersTemplate : selectedItem)
             {
-                stmt.executeUpdate("delete from Users where uid ="+usersTemplate.getUid()+";");
+                stmt.executeUpdate("delete from Users where uid ="+usersTemplate.getId()+";");
             }
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
 
@@ -114,7 +115,7 @@ public class ApiAccessor {
         }
         catch (Exception e)
         {
-            JOptionPane.showMessageDialog(null,e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog(e.getMessage(),"Error!!");
             return null;
         }
     }
@@ -123,15 +124,15 @@ public class ApiAccessor {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate("Insert into Inventory(name,type,category,price,soldmonth,totalsold,placement,available,discount,tax,uid) values('" + inventoryTableItem.getName() + "','" + inventoryTableItem.getType() + "','" + inventoryTableItem.getCategory() + "','" + inventoryTableItem.getPrice() + "','" + inventoryTableItem.getSoldMonth()+ "','" + inventoryTableItem.getTotalSold() + "','" + inventoryTableItem.getPlacement()+ "','" + inventoryTableItem.getAvailable() + "','" + inventoryTableItem.getDiscount()+ "','" + inventoryTableItem.getTax() + "','" + inventoryTableItem.getId() + "');");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
     public void updateInventoryItem(InventoryTableItem selectedItem) {
         try {
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate("update Inventory set name='"+selectedItem.getName()+"',type='"+selectedItem.getType()+"',category='"+selectedItem.getCategory()+"',price='"+selectedItem.getPrice()+"',soldmonth='"+selectedItem.getSoldMonth()+"',totalsold='"+selectedItem.getTotalSold()+"',placement='"+selectedItem.getPlacement()+"',available='"+selectedItem.getAvailable()+"',discount='"+selectedItem.getDiscount()+"',tax='"+selectedItem.getTax()+"',uid='"+selectedItem.getUid()+"' where id ="+selectedItem.getId()+";");
+            stmt.executeUpdate("update Inventory set name='"+selectedItem.getName()+"',type='"+selectedItem.getType()+"',category='"+selectedItem.getCategory()+"',price='"+selectedItem.getPrice()+"',soldmonth='"+selectedItem.getSoldMonth()+"',totalsold='"+selectedItem.getTotalSold()+"',placement='"+selectedItem.getPlacement()+"',available='"+selectedItem.getAvailable()+"',discount='"+selectedItem.getDiscount()+"',tax='"+selectedItem.getTax()+"',uid='"+selectedItem.getId()+"' where id ="+selectedItem.getId()+";");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
     public void deleteInventoryItem(ObservableList<InventoryTableItem> selectedItem) {
@@ -142,7 +143,7 @@ public class ApiAccessor {
                 stmt.executeUpdate("delete from Inventory where id ="+inventoryTableItem.getId()+";");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
 
@@ -150,7 +151,7 @@ public class ApiAccessor {
     public List<TodoTableItem> getTodoList() {
         try (
                 Statement stmnt = connection.createStatement();
-                ResultSet rs = stmnt.executeQuery("select * from Todo where uid='"+Bossex.userDetails.getUid()+"'");
+                ResultSet rs = stmnt.executeQuery("select * from Todo where uid='"+Bossex.userDetails.getId()+"'");
         ) {
             List<TodoTableItem> todoTableItemList  = new ArrayList<>();
             while (rs.next()) {
@@ -161,16 +162,16 @@ public class ApiAccessor {
         }
         catch (Exception e)
         {
-            JOptionPane.showMessageDialog(null,e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog(e.getMessage(),"Error!!");
             return null;
         }
     }
     public void addTodo(String TodoDescription, String Date) {
         try {
             Statement stmt = connection.createStatement();
-            stmt.executeUpdate("Insert into Todo(TodoDescription,Date,uid) values('" + TodoDescription + "','" + Date + "','" + Bossex.userDetails.getUid() + "');");
+            stmt.executeUpdate("Insert into Todo(TodoDescription,Date,uid) values('" + TodoDescription + "','" + Date + "','" + Bossex.userDetails.getId() + "');");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
     public void updateTodo(TodoTableItem selectedItem) {
@@ -178,7 +179,7 @@ public class ApiAccessor {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate("update Todo set TodoDescription='"+selectedItem.getTodoDescription()+"',Date='"+selectedItem.getDate()+"' where id ="+selectedItem.getId()+";");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
     public void deleteTodo(ObservableList<TodoTableItem> selectedItem) {
@@ -186,7 +187,7 @@ public class ApiAccessor {
             Statement stmt = connection.createStatement();
             for (TodoTableItem todoTableItem : selectedItem) stmt.executeUpdate("delete from Todo where id ="+todoTableItem.getId()+";");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
 
@@ -197,7 +198,7 @@ public class ApiAccessor {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate("Insert into Employee_Details(Personal_ID_Number,First_Name,Middle_Name,Last_Name,Date_of_Birth,Mobile,Alternate_Mobile,City,Address,Postal_Code,Qualification,Current_Experience,Start_Date,End_Date,Type_Employee,Designation_Id) values('"+employeesTemplate.getPersonal_ID_Number()+"','"+employeesTemplate.getFirst_Name()+"','"+employeesTemplate.getMiddle_Name()+"','"+employeesTemplate.getLast_Name()+"','"+employeesTemplate.getDate_of_Birth()+"','"+employeesTemplate.getMobile()+"','"+employeesTemplate.getAlternate_Mobile()+"','"+employeesTemplate.getCity()+"','"+employeesTemplate.getAddress()+"','"+employeesTemplate.getPostal_Code()+"','"+employeesTemplate.getQualification()+"','"+employeesTemplate.getCurrent_Experience()+"','"+employeesTemplate.getStart_Date()+"','"+employeesTemplate.getEnd_Date()+"','"+employeesTemplate.getType_Employee()+"','"+employeesTemplate.getDesignation_Id()+"');");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
     public void updateEmployee(EmployeesTemplate changedVal) {
@@ -205,7 +206,7 @@ public class ApiAccessor {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate("update Employee_Details set Personal_ID_Number='"+changedVal.getPersonal_ID_Number()+"',First_Name='"+changedVal.getFirst_Name()+"',Middle_Name='"+changedVal.getMiddle_Name()+"',Last_Name='"+changedVal.getLast_Name()+"',Date_of_Birth='"+changedVal.getDate_of_Birth()+"',Mobile='"+changedVal.getMobile()+"',Alternate_Mobile='"+changedVal.getAlternate_Mobile()+"',City='"+changedVal.getCity()+"',Address='"+changedVal.getAddress()+"',Postal_Code='"+changedVal.getPostal_Code()+"',Qualification='"+changedVal.getQualification()+"',Current_Experience='"+changedVal.getCurrent_Experience()+"',Start_Date='"+changedVal.getStart_Date()+"',End_Date='"+changedVal.getEnd_Date()+"',Type_Employee='"+changedVal.getType_Employee()+"',Designation_Id='"+changedVal.getDesignation_Id()+"' where Employee_ID_Number ="+changedVal.getEmployee_ID_Number()+";");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
 
@@ -223,7 +224,7 @@ public class ApiAccessor {
         }
         catch (Exception e)
         {
-            JOptionPane.showMessageDialog(null,e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog(e.getMessage(),"Error!!");
             return null;
         }
     }
@@ -232,7 +233,7 @@ public class ApiAccessor {
             Statement stmt = connection.createStatement();
             for (EmployeesTemplate employeesTemplate : selectedItem) stmt.executeUpdate("delete from Employee_Details where id ="+employeesTemplate.getEmployee_ID_Number()+";");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(),"Error!!",JOptionPane.ERROR_MESSAGE);
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
 }
