@@ -140,14 +140,29 @@
                             <ImageView fx:id="manageUnitsImageView"  pickOnBounds="true" preserveRatio="true" />
                         </graphic>
                     </Button>
+                    <Button onAction="#addUnitsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Add Units" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addUnitsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
                     <Button onAction="#manageCategoriesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Categories" textAlignment="CENTER" wrapText="true">
                         <graphic>
                             <ImageView fx:id="manageCategoriesImageView"  pickOnBounds="true" preserveRatio="true" />
                         </graphic>
                     </Button>
+                    <Button onAction="#addCategoriesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Add Categories" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addCategoriesImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
                     <Button onAction="#manageBrandsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="81.0" text="Brands" textAlignment="CENTER" wrapText="true">
                         <graphic>
                             <ImageView fx:id="manageBrandsImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addBrandsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Add Brands" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addBrandsImageView"  pickOnBounds="true" preserveRatio="true" />
                         </graphic>
                     </Button>
                     <Button onAction="#warrantiesButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="90.0" text="Warranties" textAlignment="CENTER" wrapText="true">
@@ -533,6 +548,11 @@
                     <Button onAction="#manageBusinessLocationButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Business Locations" textAlignment="CENTER" wrapText="true">
                         <graphic>
                             <ImageView fx:id="manageBusinessLocationImageView"  pickOnBounds="true" preserveRatio="true" />
+                        </graphic>
+                    </Button>
+                    <Button onAction="#addBusinessLocationButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="85.0" text="Add Business Locations" textAlignment="CENTER" wrapText="true">
+                        <graphic>
+                            <ImageView fx:id="addBusinessLocationImageView"  pickOnBounds="true" preserveRatio="true" />
                         </graphic>
                     </Button>
                     <Button onAction="#manageInvoiceSettingsButtonAction" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="85" prefWidth="75.0" text="Invoice Settings" textAlignment="CENTER" wrapText="true">

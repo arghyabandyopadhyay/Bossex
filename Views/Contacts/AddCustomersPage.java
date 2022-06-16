@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.util.StringConverter;
@@ -30,6 +31,7 @@ public class AddCustomersPage implements Initializable {
     public TextField totalSellReturnDueTF;
     public ComboBox<CustomerGroupsModel> customerGroupCB;
     public ComboBox<PaytermModel> paytermCB;
+    public Button addButton;
 
     ObservableList<CustomerGroupsModel> customerGroups;
     ObservableList<PaytermModel> payterms;
@@ -50,6 +52,17 @@ public class AddCustomersPage implements Initializable {
         if(!name.isBlank()&&!emailId.isBlank()&&!pancard.isBlank()&&!mNo.isBlank()) {
             DatabaseAccessor accessor = new DatabaseAccessor();
             accessor.addCustomer(emailId,mNo,name,payterm,pancard,openingBalance,creditLimit,advanceBalance,address,totalSellDue,totalSellReturnDue,customerGroup);
+            openMessageDialog("Customer created successfully!!","Success");
+            nameTF.clear();
+            emailIdTF.clear();
+            pancardTF.clear();
+            openingBalanceTF.clear();
+            addressTF.clear();
+            mobileTF.clear();
+            totalSellDueTF.clear();
+            totalSellReturnDueTF.clear();
+            creditLimitTF.clear();
+            advanceBalanceTF.clear();
         }
         else openMessageDialog("The * Marked fields can't be empty","Error!!");
     }

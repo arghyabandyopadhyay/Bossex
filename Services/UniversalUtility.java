@@ -162,7 +162,7 @@ public class UniversalUtility {
         primaryStage.setResizable(false);
         primaryStage.setTitle(dialogTitle);
         primaryStage.setScene(scene);
-        primaryStage.show();
+        primaryStage.showAndWait();
     }
 
     public static boolean openConfirmDialog(String message, String dialogTitle) {

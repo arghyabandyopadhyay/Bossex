@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="BusinessGenie.app.Bossex.Views.Settings.AddBusinessLocationPage"
+            prefHeight="400.0" prefWidth="600.0">
+    <bottom>
+        <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <buttons>
+                <Button onAction="#createBusinessLocationAction" fx:id="addButton" text="Create _Business Location" />
+                <!--            <Button onAction="#cancelAction" text="_Cancel" />-->
+            </buttons>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </ButtonBar>
+    </bottom>
+    <center>
+        <VBox prefHeight="295.0" prefWidth="312.0" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets left="5.0" right="5.0"/>
+            </padding>
+            <Label text="Business Location Details:">
+                <padding>
+                    <Insets bottom="5.0" top="5.0"/>
+                </padding>
+            </Label>
+            <Separator prefWidth="200.0"/>
+            <HBox prefHeight="25.0" prefWidth="600.0">
+                <padding>
+                    <Insets bottom="5.0" top="5.0"/>
+                </padding>
+                <Label prefHeight="25.0" prefWidth="129.0" text="*Location Name:"/>
+                <TextField fx:id="businessLocationTF"/>
+            </HBox>
+            <HBox prefHeight="25.0" prefWidth="600.0">
+                <padding>
+                    <Insets bottom="5.0" top="5.0"/>
+                </padding>
+                <Label prefHeight="25.0" prefWidth="129.0" text="*Address:"/>
+                <TextField fx:id="addressTF"/>
+            </HBox>
+        </VBox>
+    </center>
+    <top>
+        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <Label text="Create New Business Location">
+                <font>
+                    <Font size="18.0"/>
+                </font>
+            </Label>
+        </HBox>
+    </top>
+
+
+</BorderPane>
+
+

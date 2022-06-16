@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -12,77 +14,80 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<BorderPane fx:id="borderPane1" prefHeight="700" prefWidth="1200" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BusinessGenie.app.Bossex.Views.LoginPage.LoginPage">
+<BorderPane fx:id="borderPane1" prefHeight="700" prefWidth="1200" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BusinessGenie.app.Bossex.Views.LoginPage.LoginPage">
    <center>
-      <ImageView pickOnBounds="true" preserveRatio="true" >
-         <Image url="@../../Resources/Bossex.png"/>
+      <ImageView pickOnBounds="true" preserveRatio="true">
+         <Image url="@../../Resources/Bossex.png" />
       </ImageView>
    </center>
    <right>
-      <VBox alignment="CENTER" prefHeight="674.0" prefWidth="562.0"  BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER" prefHeight="376.0" prefWidth="581.0">
-               <children>
-                  <VBox fx:id="loginVBox" alignment="CENTER" prefHeight="376.0" prefWidth="384.0" style="-fx-background-color: #007FD7; -fx-background-radius: 20;">
-                     <children>
-                        <ImageView  pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Resources/myProfile.png" />
-                           </image>
-                        </ImageView>
-                        <HBox alignment="CENTER" >
-                           <children>
-                              <VBox alignment="TOP_CENTER">
-                                 <children>
-                                    <Label contentDisplay="CENTER" prefHeight="30.0" prefWidth="85.0" text="Log In" textAlignment="CENTER">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                       <effect>
-                                          <Glow />
-                                       </effect>
-                                    </Label>
-                                    <Label text="Let's get to work.">
-                                       <effect>
-                                          <Glow />
-                                       </effect>
-                                       <font>
-                                          <Font size="15.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="usernameTf" promptText="Username" style="-fx-border-color: transparent; -fx-border-radius: 5; -fx-border-width: -1;" />
-                                    <PasswordField fx:id="passwordTf" promptText="Password" style="-fx-border-color: transparent; -fx-border-radius: 5;" />
-                                    <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0" style="-fx-background-color: Transparent;" text="Forgot Password?" textFill="#ffffff">
-                                       <font>
-                                          <Font size="12.0" />
-                                       </font>
-                                       <effect>
-                                          <Glow />
-                                       </effect>
-                                    </Button>
-                                    <Button fx:id="goBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="281.0" text="Go" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Bold" size="14.0" />
-                                       </font>
-                                       <effect>
-                                          <Glow />
-                                       </effect></Button>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </HBox>
-                     </children>
+      <VBox alignment="CENTER" prefHeight="674.0" prefWidth="562.0" BorderPane.alignment="CENTER">
+         <HBox alignment="CENTER" prefHeight="376.0" prefWidth="581.0">
+            <VBox fx:id="loginVBox" alignment="CENTER" prefHeight="376.0" prefWidth="384.0"
+                  style="-fx-background-color: #007FD7; -fx-background-radius: 20;">
+               <ImageView pickOnBounds="true" preserveRatio="true">
+                  <Image url="@../../Resources/myProfile.png"/>
+               </ImageView>
+               <HBox alignment="CENTER">
+                  <VBox alignment="TOP_CENTER">
+                     <Label contentDisplay="CENTER" prefHeight="30.0" prefWidth="85.0" text="Log In"
+                            textAlignment="CENTER">
+                        <font>
+                           <Font name="System Bold" size="17.0"/>
+                        </font>
+                        <effect>
+                           <Glow/>
+                        </effect>
+                     </Label>
+                     <Label text="Let's get to work.">
+                        <effect>
+                           <Glow/>
+                        </effect>
+                        <font>
+                           <Font size="15.0"/>
+                        </font>
+                     </Label>
+                     <TextField fx:id="usernameTf" promptText="Username"
+                                style="-fx-border-color: transparent; -fx-border-radius: 5; -fx-border-width: -1;"/>
+                     <PasswordField fx:id="passwordTf" promptText="Password"
+                                    style="-fx-border-color: transparent; -fx-border-radius: 5;"/>
+                     <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0"
+                             style="-fx-background-color: Transparent;" text="Forgot Password?"
+                             textFill="#ffffff">
+                        <font>
+                           <Font size="12.0"/>
+                        </font>
+                        <effect>
+                           <Glow/>
+                        </effect>
+                     </Button>
+                     <Button fx:id="goBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="281.0" text="Go"
+                             textFill="WHITE">
+                        <font>
+                           <Font name="System Bold" size="14.0"/>
+                        </font>
+                        <effect>
+                           <Glow/>
+                        </effect>
+                     </Button>
+                     <Button alignment="CENTER_RIGHT" mnemonicParsing="false" prefHeight="26.0" prefWidth="294.0"
+                             style="-fx-background-color: Transparent;" text="Sign up" textFill="#ffffff">
+                        <font>
+                           <Font size="12.0"/>
+                        </font>
+                        <effect>
+                           <Glow/>
+                        </effect>
+                     </Button>
                   </VBox>
-               </children>
-            </HBox>
-         </children>
+               </HBox>
+            </VBox>
+         </HBox>
       </VBox>
    </right>
    <bottom>
-      <HBox alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
-         <Label prefHeight="26.0" prefWidth="1044.0" text="Manage Your Business In Clicks." textFill="WHITE">
+      <HBox alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="1200.0" style="-fx-background-color: Black;" BorderPane.alignment="CENTER">
+         <Label prefHeight="26.0" prefWidth="1044.0" text="Bossex v2022.1 | Copyright &#169; 2022 All rights reserved." textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
@@ -90,7 +95,7 @@
                <Insets right="5.0" />
             </padding>
          </Label>
-         <Label alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="641.0" text="Product Of ByteRider." textFill="WHITE">
+         <Label alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="641.0" text="Business Genie." textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>

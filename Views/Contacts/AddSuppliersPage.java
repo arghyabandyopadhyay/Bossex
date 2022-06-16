@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.util.StringConverter;
@@ -27,6 +28,7 @@ public class AddSuppliersPage implements Initializable {
     public TextField totalPurchaseReturnDueTF;
     public ComboBox<PaytermModel> paytermCB;
     public TextField businessNameTF;
+    public Button addButton;
     ObservableList<PaytermModel> payterms;
 
     public void createSupplierAction(ActionEvent actionEvent) {
@@ -43,6 +45,16 @@ public class AddSuppliersPage implements Initializable {
         if(!name.isBlank()&&!emailId.isBlank()&&!gstin.isBlank()&&!mNo.isBlank()) {
             DatabaseAccessor accessor = new DatabaseAccessor();
             accessor.addSupplier(emailId,businessName,mNo,name,payterm,gstin,openingBalance,address,totalPurchaseDue,totalPurchaseReturnDue);
+            openMessageDialog("Supplier created successfully!!","Success");
+            nameTF.clear();
+            emailIdTF.clear();
+            gstinTF.clear();
+            openingBalanceTF.clear();
+            addressTF.clear();
+            mobileTF.clear();
+            totalPurchaseDueTF.clear();
+            totalPurchaseReturnDueTF.clear();
+            businessNameTF.clear();
         }
         else openMessageDialog("The * Marked fields can't be empty","Error!!");
     }

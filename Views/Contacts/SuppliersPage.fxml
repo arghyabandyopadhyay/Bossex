@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Font?>
-<BorderPane fx:id="suppliersManagementBorderPane" prefHeight="400.0" prefWidth="948.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BusinessGenie.app.Bossex.Views.Contacts.SuppliersPage">
+<BorderPane fx:id="suppliersManagementBorderPane" prefHeight="400.0" prefWidth="948.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BusinessGenie.app.Bossex.Views.Contacts.SuppliersPage">
     <center>
         <ScrollPane fitToWidth="true" prefHeight="400.0" prefWidth="690.0" BorderPane.alignment="CENTER">
             <BorderPane prefHeight="510.0" prefWidth="986.0">

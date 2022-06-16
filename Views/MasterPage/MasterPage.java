@@ -135,6 +135,10 @@ public class MasterPage implements Initializable {
     public ImageView spotifyToolImageView;
     public ImageView whatsappToolImageView;
     public ImageView addCustomersGroupsImageView;
+    public ImageView addUnitsImageView;
+    public ImageView addBusinessLocationImageView;
+    public ImageView addBrandsImageView;
+    public ImageView addCategoriesImageView;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -453,5 +457,21 @@ public class MasterPage implements Initializable {
     }
 
     public void whatsappToolButtonAction(ActionEvent actionEvent) {
+    }
+
+    public void addUnitsButtonAction(ActionEvent actionEvent) throws IOException {
+        openTab("Views/Products/AddUnitsPage.fxml","Resources/manageUnits.png","Units",false);
+    }
+
+    public void addBusinessLocationButtonAction(ActionEvent actionEvent) throws IOException {
+        openTab("Views/Settings/AddBusinessLocationPage.fxml","Resources/businessLocation.png","Add Business Loc.",false);
+    }
+
+    public void addBrandsButtonAction(ActionEvent actionEvent) throws IOException {
+        openTab("Views/Products/AddBrandsPage.fxml","Resources/manageBrands.png","Brands",false);
+    }
+
+    public void addCategoriesButtonAction(ActionEvent actionEvent) throws IOException {
+        openTab("Views/Products/AddProductCategoryPage.fxml","Resources/manageCategories.png","Add Category",false);
     }
 }

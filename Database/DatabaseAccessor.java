@@ -7,6 +7,7 @@ import BusinessGenie.app.Bossex.Models.Contacts.PaytermModel;
 import BusinessGenie.app.Bossex.Models.Contacts.SuppliersModel;
 import BusinessGenie.app.Bossex.Models.Employee.EmployeesTemplate;
 import BusinessGenie.app.Bossex.Models.InventoryTableItem;
+import BusinessGenie.app.Bossex.Models.Products.*;
 import BusinessGenie.app.Bossex.Models.TodoTableItem;
 import BusinessGenie.app.Bossex.Models.Users.UserRoleModel;
 import BusinessGenie.app.Bossex.Models.Users.UsersModel;
@@ -433,6 +434,7 @@ public class DatabaseAccessor {
         }
     }
 
+    //Payterm model cred operations
     public List<PaytermModel> getPaytermModels() {
         try (
                 Statement stmnt = connection.createStatement();
@@ -451,6 +453,232 @@ public class DatabaseAccessor {
         {
             openMessageDialog(e.getMessage(),"Error!!");
             return null;
+        }
+    }
+    public  void addPayterm(String paytermDesc){
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Insert into Payterms(paytermDesc) values('" + paytermDesc+"');");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+    public void deletePayterm(PaytermModel paytermModel) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Delete from Payterm where id="+paytermModel.getId()+";");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+
+    //Product table model cred operations
+    public List<ProductsTableModel> getProducts() {
+        try (
+                Statement stmnt = connection.createStatement();
+                ResultSet rs = stmnt.executeQuery(Queries.getProducts);
+        ) {
+            List<ProductsTableModel> products = new ArrayList<>();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String productName = rs.getString("product");
+                String businessLocation=rs.getString("businessLocation");
+                int businessLocationId=rs.getInt("businessLocationId");
+                double unitPurchasePrice=rs.getDouble("unitPurchasePrice");
+                double sellingPrice=rs.getDouble("sellingPrice");
+                double currentStock=rs.getDouble("currentStock");
+                String productType=rs.getString("productType");
+                String category=rs.getString("category");
+                int categoryId=rs.getInt("categoryId");
+                int brandId=rs.getInt("brandId");
+                String brand=rs.getString("brand");
+                double tax=rs.getDouble("tax");
+                String sku=rs.getString("sku");
+                int unitId=rs.getInt("unitId");
+                String unit=rs.getString("unit");
+                ProductsTableModel product = new ProductsTableModel(id,productName,businessLocationId,businessLocation,unitPurchasePrice,sellingPrice,currentStock,productType,categoryId,category,brandId,brand,tax,sku,unitId,unit);
+                products.add(product);
+            }
+            return products;
+        }
+        catch (Exception e)
+        {
+            openMessageDialog(e.getMessage(),"Error!!");
+            return null;
+        }
+    }
+    public void addProducts(String product,int businessLocationId,double unitPurchasePrice,double sellingPrice,double currentStock,String productType,int categoryId,int brandId,double tax,String sku,int unitId){
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Insert into Products(product,businessLocationId,unitPurchasePrice,sellingPrice,currentStock,productType,categoryId,brandId,tax,sku,unitId) values('" + product + "'," + businessLocationId + ","+unitPurchasePrice+ ","+sellingPrice+ ","+currentStock+ ",'"+productType+ "',"+categoryId+","+brandId+","+tax+",'"+sku+"',"+unitId+");");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+    public void deleteProduct(ProductsTableModel productsTableModel) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Delete from Products where id="+productsTableModel.getId()+";");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+    //Business Location Model cred operation
+    public List<BusinessLocationsModel> getBusinessLocations() {
+        try (
+                Statement stmnt = connection.createStatement();
+                ResultSet rs = stmnt.executeQuery(Queries.getBusinessLocations);
+        ) {
+            List<BusinessLocationsModel> businessLocations = new ArrayList<>();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String businessLocation=rs.getString("businessLocation");
+                String address=rs.getString("address");
+                BusinessLocationsModel businessLocationsModel = new BusinessLocationsModel(id,businessLocation,address);
+                businessLocations.add(businessLocationsModel);
+            }
+            return businessLocations;
+        }
+        catch (Exception e)
+        {
+            openMessageDialog(e.getMessage(),"Error!!");
+            return null;
+        }
+    }
+
+    public void addBusinessLocation(String businessLocationName, String address) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Insert into BusinessLocations(businessLocation,address) values('" + businessLocationName + "','" + address+"');");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+
+    public void deleteBusinessLocations(BusinessLocationsModel businessLocation) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Delete from BusinessLocations where id="+businessLocation.getId()+";");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+
+    //ProductCategories cred operations
+    public List<ProductCategoriesModel> getProductCategories() {
+        try (
+                Statement stmnt = connection.createStatement();
+                ResultSet rs = stmnt.executeQuery(Queries.getProductCategories);
+        ) {
+            List<ProductCategoriesModel> productCategories = new ArrayList<>();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String category=rs.getString("category");
+                ProductCategoriesModel productCategoriesModel = new ProductCategoriesModel(id,category);
+                productCategories.add(productCategoriesModel);
+            }
+            return productCategories;
+        }
+        catch (Exception e)
+        {
+            openMessageDialog(e.getMessage(),"Error!!");
+            return null;
+        }
+    }
+
+    public void addProductCategory(String category) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Insert into ProductCategories(category) values('" + category+"');");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+
+    public void deleteProductCategory(ProductCategoriesModel productCategoriesModel) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Delete from ProductCategories where id="+productCategoriesModel.getId()+";");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+    //Brands cred operations
+    public List<BrandsModel> getBrands() {
+        try (
+                Statement stmnt = connection.createStatement();
+                ResultSet rs = stmnt.executeQuery(Queries.getBrands);
+        ) {
+            List<BrandsModel> brands = new ArrayList<>();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String brand=rs.getString("brand");
+                BrandsModel brandsModel = new BrandsModel(id,brand);
+                brands.add(brandsModel);
+            }
+            return brands;
+        }
+        catch (Exception e)
+        {
+            openMessageDialog(e.getMessage(),"Error!!");
+            return null;
+        }
+    }
+
+    public void addBrand(String brand) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Insert into Brands(brand) values('" + brand+"');");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+
+    public void deleteBrand(BrandsModel brandsModel) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Delete from Brands where id="+brandsModel.getId()+";");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+    //Units cred operations
+    public List<UnitsModel> getUnits() {
+        try (
+                Statement stmnt = connection.createStatement();
+                ResultSet rs = stmnt.executeQuery(Queries.getUnits);
+        ) {
+            List<UnitsModel> units = new ArrayList<>();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String unit=rs.getString("unit");
+                UnitsModel unitModel = new UnitsModel(id,unit);
+                units.add(unitModel);
+            }
+            return units;
+        }
+        catch (Exception e)
+        {
+            openMessageDialog(e.getMessage(),"Error!!");
+            return null;
+        }
+    }
+
+    public void addUnits(String unit) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Insert into Units(unit) values('" + unit+"');");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
+        }
+    }
+
+    public void deleteUnit(UnitsModel unitsModel) {
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate("Delete from Units where id="+unitsModel.getId()+";");
+        } catch (Exception e) {
+            openMessageDialog( e.getMessage(),"Error!!");
         }
     }
 }

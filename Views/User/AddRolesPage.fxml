@@ -1,14 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
+<?import javafx.scene.text.Font?>
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="BusinessGenie.app.Bossex.Views.User.AddRolesPage"
             prefHeight="400.0" prefWidth="600.0">
+<bottom>
+    <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <buttons>
+            <Button onAction="#createRoleAction" fx:id="addButton" text="Create _Role" />
+            <!--            <Button onAction="#cancelAction" text="_Cancel" />-->
+        </buttons>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </padding>
+    </ButtonBar>
+</bottom>
+<center>
+    <VBox prefHeight="295.0" prefWidth="312.0" BorderPane.alignment="CENTER">
+        <padding>
+            <Insets left="5.0" right="5.0"/>
+        </padding>
+        <Label text="Role Details:">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+        </Label>
+        <Separator prefWidth="200.0"/>
+        <HBox prefHeight="25.0" prefWidth="600.0">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+            <Label prefHeight="25.0" prefWidth="129.0" text="*Role:"/>
+            <TextField fx:id="rName"/>
+        </HBox>
+    </VBox>
+</center>
+<top>
+    <HBox alignment="CENTER" prefHeight="65.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <Label text="Create New Role.">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+    </HBox>
+</top>
+<right>
+    <VBox prefHeight="295.0" prefWidth="278.0" BorderPane.alignment="CENTER">
+        <padding>
+            <Insets left="5.0" right="5.0"/>
+        </padding>
+        <Label text="Permissions:">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+        </Label>
+        <Separator prefWidth="200.0"/>
+        <HBox prefHeight="25.0" prefWidth="200.0">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+            <CheckBox fx:id="salesManagerCB" mnemonicParsing="false" text="Sales Manager"/>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="39.0" prefHeight="25.0" prefWidth="200.0">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+            <CheckBox fx:id="inventoryManagerCB" mnemonicParsing="false" text="Inventory Manager"/>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="67.0" prefHeight="25.0" prefWidth="200.0">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+            <CheckBox fx:id="userManagerCB" mnemonicParsing="false" text="User Manager"/>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="95.0" prefHeight="25.0" prefWidth="200.0">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+            <CheckBox fx:id="reportManagerCB" mnemonicParsing="false" text="Report Manager"/>
+        </HBox>
+        <HBox layoutX="10.0" layoutY="123.0" prefHeight="25.0" prefWidth="200.0">
+            <padding>
+                <Insets bottom="5.0" top="5.0"/>
+            </padding>
+            <CheckBox fx:id="createNewUserCB" mnemonicParsing="false" text="Create New User"/>
+        </HBox>
+    </VBox>
+</right>
 
-</AnchorPane>
+</BorderPane>
+
+

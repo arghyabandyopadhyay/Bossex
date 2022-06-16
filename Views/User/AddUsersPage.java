@@ -27,6 +27,7 @@ public class AddUsersPage implements Initializable {
     public TextField mNoTF;
     public ComboBox<UserRoleModel> roleComboBox;
     public ComboBox<String> themeComboBox;
+    public Button addButton;
 
     ObservableList<UserRoleModel> roles;
 
@@ -43,6 +44,13 @@ public class AddUsersPage implements Initializable {
             if(!name.isBlank()&&!userId.isBlank()&&!password.isBlank()&&!mNo.isBlank()) {
                 DatabaseAccessor accessor = new DatabaseAccessor();
                 accessor.addUser(userId, password, emailId, mNo, theme, name, roleId);
+                openMessageDialog("User created successfully!!","Success");
+                uName.clear();
+                uId.clear();
+                passwordTF.clear();
+                confirmPasswordTF.clear();
+                emailIdTF.clear();
+                mNoTF.clear();
             }
             else openMessageDialog("The * Marked fields can't be empty","Error!!");
         }

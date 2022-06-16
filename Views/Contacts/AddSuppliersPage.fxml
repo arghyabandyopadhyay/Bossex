@@ -10,7 +10,7 @@
     <bottom>
         <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <buttons>
-                <Button onAction="#createSupplierAction" text="Create _Supplier" />
+                <Button onAction="#createSupplierAction" fx:id="addButton" text="Create _Supplier" />
                 <!--            <Button onAction="#cancelAction" text="_Cancel" />-->
             </buttons>
             <padding>

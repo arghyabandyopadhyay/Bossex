@@ -10,7 +10,7 @@
 <bottom>
     <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-            <Button onAction="#createCustomerGroupAction" text="Create _Customer Group" />
+            <Button onAction="#createCustomerGroupAction" fx:id="addButton" text="Create _Customer Group" />
             <!--            <Button onAction="#cancelAction" text="_Cancel" />-->
         </buttons>
         <padding>
